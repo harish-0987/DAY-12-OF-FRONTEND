@@ -1,255 +1,357 @@
-# 🌐 Day 1 of Frontend: Introduction to HTML
+# 📊 Day 2 of Frontend: Mastering HTML Tables
 
-Welcome to **Day 1 of Frontend Development**! This repository covers the fundamental theory of **HTML (HyperText Markup Language)**, its architecture, core building blocks, and key advantages.
+Welcome to **Day 2 of Frontend Development**! Today's focus is on **HTML Tables** — learning how to structure, format, and present tabular data cleanly and semantically using modern web standards.
+
+Repository: [harish-0987/DAY-2-OF-FRONTEND](https://github.com/harish-0987/DAY-2-OF-FRONTEND)
 
 ---
 
 ## 📖 Table of Contents
-1. [What is HTML?](#1-what-is-html)
-2. [Role of HTML in Web Development](#2-role-of-html-in-web-development)
-3. [Basic Structure of an HTML Document](#3-basic-structure-of-an-html-document)
-4. [Anatomy of an HTML Element](#4-anatomy-of-an-html-element)
-5. [Essential Basic HTML Tags](#5-essential-basic-html-tags)
-6. [Block vs. Inline Elements](#6-block-vs-inline-elements)
-7. [Semantic HTML Overview](#7-semantic-html-overview)
-8. [Key Advantages of HTML](#8-key-advantages-of-html)
-9. [Limitations of HTML](#9-limitations-of-html)
-10. [Best Practices for Beginners](#10-best-practices-for-beginners)
+1. [What is an HTML Table?](#1-what-is-an-html-table)
+2. [When to Use (and NOT Use) Tables](#2-when-to-use-and-not-use-tables)
+3. [The Core Table Tags Hierarchy](#3-the-core-table-tags-hierarchy)
+4. [Semantic Table Elements](#4-semantic-table-elements)
+5. [Merging Cells: `colspan` and `rowspan`](#5-merging-cells-colspan-and-rowspan)
+6. [Table Accessibility: The `scope` Attribute](#6-table-accessibility-the-scope-attribute)
+7. [Essential CSS for HTML Tables](#7-essential-css-for-html-tables)
+8. [Step-by-Step Code Examples](#8-step-by-step-code-examples)
+   - [Level 1: Minimal 2×2 Table](#level-1-minimal-22-table)
+   - [Level 2: Basic Student Directory](#level-2-basic-student-directory)
+   - [Level 3: Full Semantic Order Invoice](#level-3-full-semantic-order-invoice)
+   - [Level 4: Class Timetable (Colspan + Rowspan)](#level-4-class-timetable-colspan--rowspan)
+9. [Common Beginner Mistakes](#9-common-beginner-mistakes)
+10. [Quick Tag Cheat Sheet](#10-quick-tag-cheat-sheet)
 
 ---
 
-## 1. What is HTML?
+## 1. What is an HTML Table?
 
-- **HTML** stands for **HyperText Markup Language**.
-- It is the **standard markup language** used to create and structure pages on the World Wide Web.
-- **HyperText**: Text that links to other texts or pages via hyperlinks.
-- **Markup Language**: A system of annotating a document using **tags** to define elements, structure, and presentation for web browsers.
-- 💡 **Note**: HTML is **not** a programming language; it is a markup language because it does not contain variables, functions, conditional logic, or loops.
+An **HTML table** allows developers to arrange data (text, numbers, links, images) into a structured grid of **rows** and **columns**.
+
+Every table is composed of:
+- **Rows**: Horizontal sequences of cells.
+- **Columns**: Vertical sequences of cells.
+- **Cells**: Individual containers holding data or headers.
 
 ---
 
-## 2. Role of HTML in Web Development
+## 2. When to Use (and NOT Use) Tables
 
-Web development typically relies on three core pillars:
+| ✅ When to Use Tables (Tabular Data) | ❌ When to Avoid Tables (Layout Design) |
+|---|---|
+| Financial statements & invoices | Page headers, navigation bars, footers |
+| Timetables, calendars & class schedules | Multi-column article layouts (use Flexbox/Grid) |
+| Comparison charts (e.g., pricing plans) | Positioning images or centering text |
+| Student grade sheets & employee lists | Entire website page structure |
 
-| Technology | Role | Analogy (Human Body) |
+> [!IMPORTANT]
+> **Historical Note:** In the 1990s and early 2000s, developers used tables to build entire website layouts. Today, this is strictly discouraged. Modern layouts use **CSS Flexbox** and **CSS Grid**. Tables are reserved exclusively for **tabular data**.
+
+---
+
+## 3. The Core Table Tags Hierarchy
+
+HTML tables follow a strict parent-child nesting structure:
+
+```
+<table>                     ← Table container
+  ├── <tr>                  ← Table Row
+  │     ├── <th> ... </th>  ← Header Cell (Bold, Centered)
+  │     └── <th> ... </th>
+  └── <tr>                  ← Table Row
+        ├── <td> ... </td>  ← Standard Data Cell (Normal text)
+        └── <td> ... </td>
+```
+
+### Tag Explanations:
+1. **`<table>`**: The root container for all table elements.
+2. **`<tr>` (Table Row)**: Groups cells into a single horizontal row.
+3. **`<th>` (Table Header)**: Denotes a header cell. Displayed as **bold** and centered by default. Screen readers announce these as titles for connected cells.
+4. **`<td>` (Table Data)**: Denotes a standard data cell holding values or content.
+
+---
+
+## 4. Semantic Table Elements
+
+Semantic tables divide data into logical sections, making tables easier to style, script, and understand for screen readers and search engines:
+
+| Tag | Name | Description |
 |---|---|---|
-| **HTML** | Structure & Content | **Skeleton** (Bones & Framework) |
-| **CSS** | Styling & Presentation | **Skin & Clothes** (Colors, Design, Layout) |
-| **JavaScript** | Logic & Interactivity | **Muscles & Brain** (Movement & Behavior) |
+| **`<caption>`** | Table Title | Placed directly after `<table>`, describes the purpose of the table. |
+| **`<thead>`** | Table Header Block | Encloses the row(s) containing column headings. |
+| **`<tbody>`** | Table Body Block | Encloses the main body rows containing the actual data. |
+| **`<tfoot>`** | Table Footer Block | Encloses rows summarizing data (totals, averages, footnotes). |
 
 ---
 
-## 3. Basic Structure of an HTML Document
+## 5. Merging Cells: `colspan` and `rowspan`
 
-Every modern HTML document adheres to a standard boilerplate:
+Often, a table cell needs to span multiple columns horizontally or multiple rows vertically.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1 - HTML Fundamentals</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to Day 1 of Frontend Development.</p>
-</body>
-</html>
+### A. `colspan` (Horizontal Merging)
+- Merges **columns** from left to right.
+- Syntax: `<td colspan="2">Content</td>` (spans 2 column widths).
+
+```
++--------------------+----------+
+|  colspan="2"       |  Col 3   |
++----------+---------+----------+
+|  Col 1   |  Col 2  |  Col 3   |
++----------+---------+----------+
 ```
 
-### Breakdown of Key Components:
-- **`<!DOCTYPE html>`**: Tells the browser that the document is written in **HTML5**.
-- **`<html lang="en">`**: The root element that wraps all page content. `lang="en"` indicates the primary language is English (helps screen readers and search engines).
-- **`<head>`**: Contains **metadata** (data about the document) that isn't directly rendered on the web page:
-  - `<meta charset="UTF-8">`: Specifies the character encoding (supports almost all human languages and symbols).
-  - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Ensures responsive design across mobile phones, tablets, and desktops.
-  - `<title>`: Sets the title displayed on the browser tab and search engine results.
-- **`<body>`**: Contains all visible content displayed to the user (headings, text, images, buttons, videos, etc.).
+### B. `rowspan` (Vertical Merging)
+- Merges **rows** from top to bottom.
+- Syntax: `<td rowspan="2">Content</td>` (spans 2 row heights).
+
+```
++-------------------+-------------------+
+|  rowspan="2"      |  Row 1, Col 2     |
+|  (Spans Down)     +-------------------+
+|                   |  Row 2, Col 2     |
++-------------------+-------------------+
+```
+
+> [!TIP]
+> When using `rowspan="N"`, remember to **omit** that corresponding cell in the next `N - 1` rows! Otherwise, the next row will have too many cells and will overflow.
 
 ---
 
-## 4. Anatomy of an HTML Element
+## 6. Table Accessibility: The `scope` Attribute
 
-An HTML element consists of an opening tag, optional attributes, content, and a closing tag:
+For visually impaired users navigating with screen readers, the `scope` attribute explicitly clarifies whether a `<th>` is a header for a column or a row:
 
+- **`scope="col"`**: Identifies the header as applying to all cells in that vertical column.
+- **`scope="row"`**: Identifies the header as applying to all cells in that horizontal row.
+
+```html
+<tr>
+  <th scope="col">Student ID</th>
+  <th scope="col">Name</th>
+  <th scope="col">Score</th>
+</tr>
 ```
-  <p class="intro">Welcome to frontend development!</p>
-  | |     |          |                             |  |
-  | +-----+----------+                             |  |
-  |   Opening Tag with Attribute                   |  |
-  |                                            Content |
-  +------------------------------------------------+--+
-                                                Closing Tag
-```
-
-- **Opening Tag (`<tagname>`)**: Marks where the element begins.
-- **Attributes (`name="value"`)**: Provide additional configuration or metadata (e.g., `class`, `id`, `src`, `href`).
-- **Content**: The text or nested elements between the tags.
-- **Closing Tag (`</tagname>`)**: Marks where the element ends (prefixed with a forward slash `/`).
-- **Void / Self-Closing Elements**: Elements that do not require closing tags because they cannot have nested content:
-  - Examples: `<img>`, `<input>`, `<br>`, `<hr>`, `<meta>`, `<link>`.
 
 ---
 
-## 5. Essential Basic HTML Tags
+## 7. Essential CSS for HTML Tables
 
-### 1. Headings (`<h1>` to `<h6>`)
-Used for titles and subtitles. `<h1>` is the most important; `<h6>` is the least.
-```html
-<h1>Main Title (Page Heading)</h1>
-<h2>Section Heading</h2>
-<h3>Sub-section Heading</h3>
+By default, browser tables look plain with separate, double borders. Use these CSS rules to make them clean and modern:
+
+```css
+table {
+  width: 100%;
+  border-collapse: collapse; /* Collapses double borders into a single clean line */
+  font-family: sans-serif;
+}
+
+th, td {
+  border: 1px solid #cbd5e1;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+/* Zebra striping for better readability */
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Row hover highlight */
+tbody tr:hover {
+  background-color: #e2e8f0;
+}
 ```
-
-### 2. Paragraphs (`<p>`)
-Used for regular blocks of text.
-```html
-<p>This is a paragraph explaining basic frontend concepts.</p>
-```
-
-### 3. Text Formatting
-- `<strong>`: Bold text indicating strong importance.
-- `<em>`: Italicized text indicating emphasis.
-- `<mark>`: Highlighted text.
-- `<small>`: Smaller side comments.
-- `<del>`: Deleted / strikethrough text.
-
-### 4. Hyperlinks (`<a>`)
-Connects pages together or links to external websites.
-```html
-<a href="https://github.com" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
-```
-
-### 5. Images (`<img>`)
-Embeds graphics into the document.
-```html
-<img src="logo.png" alt="Company Logo" width="200" height="100">
-```
-> ⚠️ **Important**: Always include a descriptive `alt` attribute for accessibility and SEO.
-
-### 6. Lists
-- **Unordered List (Bullet points)**:
-  ```html
-  <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-  </ul>
-  ```
-- **Ordered List (Numbered)**:
-  ```html
-  <ol>
-      <li>Learn HTML</li>
-      <li>Learn CSS</li>
-      <li>Build Projects</li>
-  </ol>
-  ```
-
-### 7. Line Breaks and Horizontal Rules
-- `<br>`: Inserts a single line break.
-- `<hr>`: Inserts a thematic horizontal dividing line.
 
 ---
 
-## 6. Block vs. Inline Elements
+## 8. Step-by-Step Code Examples
 
-| Category | Behavior | Common Examples |
+### Level 1: Minimal 2×2 Table
+The absolute minimum code required to render a table:
+
+```html
+<table border="1">
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>Coffee</td>
+    <td>$3.50</td>
+  </tr>
+  <tr>
+    <td>Tea</td>
+    <td>$2.50</td>
+  </tr>
+</table>
+```
+
+---
+
+### Level 2: Basic Student Directory
+Using headers and regular data cells:
+
+```html
+<table border="1">
+  <tr>
+    <th>Roll No</th>
+    <th>Student Name</th>
+    <th>Major</th>
+    <th>Grade</th>
+  </tr>
+  <tr>
+    <td>101</td>
+    <td>Harish</td>
+    <td>Computer Science</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>102</td>
+    <td>Deepak</td>
+    <td>Information Tech</td>
+    <td>A+</td>
+  </tr>
+  <tr>
+    <td>103</td>
+    <td>Venkatesh</td>
+    <td>Data Science</td>
+    <td>A</td>
+  </tr>
+</table>
+```
+
+---
+
+### Level 3: Full Semantic Order Invoice
+Using `<caption>`, `<thead>`, `<tbody>`, `<tfoot>`, and `colspan`:
+
+```html
+<table>
+  <caption>Order Receipt #INV-2026</caption>
+  
+  <thead>
+    <tr>
+      <th scope="col">Item Description</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Rate</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>HTML &amp; CSS Handbook</td>
+      <td>1</td>
+      <td>$25.00</td>
+      <td>$25.00</td>
+    </tr>
+    <tr>
+      <td>Wireless Mouse</td>
+      <td>2</td>
+      <td>$20.00</td>
+      <td>$40.00</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="3">Grand Total</td>
+      <td><strong>$65.00</strong></td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+---
+
+### Level 4: Class Timetable (Colspan + Rowspan)
+Combining both horizontal and vertical merging:
+
+```html
+<table border="1">
+  <caption>Weekly Schedule</caption>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>09:00 - 10:30 AM</td>
+      <td>HTML5</td>
+      <td>CSS3</td>
+      <td>JavaScript</td>
+    </tr>
+    <tr>
+      <td>10:30 - 11:00 AM</td>
+      <!-- colspan="3" spans across Mon, Tue, and Wed -->
+      <td colspan="3" align="center">☕ Break</td>
+    </tr>
+    <tr>
+      <td>11:00 - 01:00 PM</td>
+      <!-- rowspan="2" spans 2 rows down -->
+      <td rowspan="2">Lab Project</td>
+      <td>Coding Practice</td>
+      <td>API Testing</td>
+    </tr>
+    <tr>
+      <td>01:00 - 02:00 PM</td>
+      <!-- Notice Mon is omitted here because Lab Project spans into this row -->
+      <td>Q&amp;A Session</td>
+      <td>Code Review</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## 9. Common Beginner Mistakes
+
+1. **Forgetting `<tr>`:** Placing `<td>` directly inside `<table>` without a `<tr >` wrapper.
+   - ❌ `<table><td>Invalid</td></table>`
+   - ✅ `<table><tr><td>Correct</td></tr></table>`
+2. **Double Borders:** Forgetting `border-collapse: collapse;` in CSS, causing awkward 3D double outlines.
+3. **Mismatched Columns when using `colspan`/`rowspan`:** Adding extra cells in a row where a previous row's `rowspan` is already occupying space.
+4. **Using Tables for Page Layout:** Using tables instead of Flexbox/Grid to arrange sidebars, cards, and banners.
+
+---
+
+## 10. Quick Tag Cheat Sheet
+
+| Tag / Attribute | Type | Purpose |
 |---|---|---|
-| **Block-level** | Starts on a new line and takes up the full width available. | `<div>`, `<p>`, `<h1>`-`<h6>`, `<ul>`, `<ol>`, `<li>`, `<header>`, `<section>` |
-| **Inline** | Does not start on a new line; only takes up as much width as needed. | `<span>`, `<a>`, `<strong>`, `<em>`, `<img>`, `<label>`, `<input>` |
+| `<table>` | Tag | Root table container |
+| `<tr>` | Tag | Defines a row |
+| `<th>` | Tag | Defines a header cell (bold, centered) |
+| `<td>` | Tag | Defines a standard data cell |
+| `<caption>` | Tag | Visible title/description of the table |
+| `<thead>` | Tag | Groups header rows |
+| `<tbody>` | Tag | Groups body data rows |
+| `<tfoot>` | Tag | Groups footer/summary rows |
+| `colspan="N"` | Attribute | Merges cell horizontally across N columns |
+| `rowspan="N"` | Attribute | Merges cell vertically across N rows |
+| `scope="col|row"` | Attribute | Specifies header target for screen readers |
 
 ---
 
-## 7. Semantic HTML Overview
+## 🚀 Running the Project Locally
 
-Semantic HTML uses tags that clearly describe their meaning to both the browser and the developer.
-
-```
-+-------------------------------------------+
-|                 <header>                  |
-+-------------------------------------------+
-|                   <nav>                   |
-+-------------------------------------------+
-| <section> / <article>         |  <aside>  |
-|                               | (Sidebar) |
-| (Main Content Area: <main>)   |           |
-+-------------------------------+-----------+
-|                 <footer>                  |
-+-------------------------------------------+
-```
-
-### Why use Semantic HTML?
-- **Accessibility (a11y)**: Screen readers can navigate the page hierarchy easily.
-- **SEO Benefits**: Search engine spiders understand the structure of your content.
-- **Cleaner Code**: Easier for team members to read and maintain.
+1. Open `basic-tables.html` in your web browser to inspect the clean, raw HTML code examples.
+2. Open `index.html` in your web browser to explore the interactive showcase, code playground, and visual spanning diagrams.
 
 ---
 
-## 8. Key Advantages of HTML
+## 🔗 Learning Navigation
+- ⬅️ **Day 1**: [harish-0987/DAY-1-OF-FRONTEND](https://github.com/harish-0987/DAY-1-OF-FRONTEND) (HTML Fundamentals & Theory)
+- ➡️ **Day 2**: [harish-0987/DAY-2-OF-FRONTEND](https://github.com/harish-0987/DAY-2-OF-FRONTEND) (HTML Tables & Layouts)
 
-HTML offers numerous significant advantages that make it the foundational standard of the web:
-
-1. **Easy to Learn & Beginner Friendly**:
-   - Clean, simple, and human-readable syntax.
-   - Requires no prior programming background or complex build configuration.
-
-2. **Cross-Platform & Browser Independence**:
-   - Supported natively by all browsers (Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge, Opera).
-   - Works consistently across operating systems (Windows, macOS, Linux, Android, iOS).
-
-3. **Free & Open Standard**:
-   - Completely free; no software licenses, subscriptions, or royalty fees.
-   - Standardized by the **W3C (World Wide Web Consortium)** and **WHATWG**.
-
-4. **Lightweight & High Performance**:
-   - Plain text format results in small file sizes.
-   - Browsers parse and render HTML natively without execution overhead or compilation delays.
-
-5. **SEO Friendly (Search Engine Optimization)**:
-   - Search engines (Google, Bing) crawl and index well-structured HTML effortlessly.
-   - Proper use of headings, meta tags, and semantic tags directly boosts search rankings.
-
-6. **Seamless Integration**:
-   - Effortlessly binds with styling languages (**CSS**) and programming languages (**JavaScript**).
-   - Compatible with backend environments (Node.js, Python, PHP, Java, Ruby, Go).
-
-7. **Accessibility & Screen Reader Support**:
-   - Standard elements provide native assistive features for users with disabilities.
-   - Keyboard navigation and screen readers rely on valid HTML tags.
-
-8. **Native Multimedia Support (HTML5)**:
-   - Built-in `<audio>`, `<video>`, `<canvas>`, and `<svg>` support eliminate reliance on legacy third-party plugins (e.g., Adobe Flash).
-
-9. **Responsive & Mobile Ready**:
-   - Works hand-in-hand with CSS media queries and native HTML viewport tags to support all screen resolutions.
-
-10. **Extensive Ecosystem & Community Support**:
-    - Decades of documentation, community tutorials, forums, and developer tooling.
-
----
-
-## 9. Limitations of HTML
-
-While essential, HTML has natural boundaries:
-- **Static Nature**: HTML by itself cannot create dynamic behavior, calculate logic, or process algorithmic tasks.
-- **Styling Constraints**: Raw HTML appears plain; CSS is essential for modern, professional visual design.
-- **No Built-in Security**: HTML cannot enforce database security or user authentication; backend servers and security layers are required.
-
----
-
-## 10. Best Practices for Beginners
-
-- ✅ Always declare `<!DOCTYPE html>` at the very top.
-- ✅ Always include the `lang` attribute on the `<html>` tag.
-- ✅ Always provide meaningful `alt` text for images.
-- ✅ Use lowercase for element tag names and attribute names.
-- ✅ Keep tags properly nested and closed.
-- ✅ Use semantic tags (`<header>`, `<main>`, `<footer>`) instead of generic `<div>` tags everywhere.
-- ✅ Format and indent your code cleanly for readability.
-
----
-
-### 🚀 Next Steps (Day 2 Preview)
-In the next session, we will dive into **CSS (Cascading Style Sheets)** to bring color, modern layouts, and beautiful typography to our HTML structures!
+⭐ If this repository helped you understand HTML tables, give it a star on GitHub!

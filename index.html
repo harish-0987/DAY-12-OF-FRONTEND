@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1 of Frontend - HTML Theory & Advantages</title>
+    <title>Day 2 of Frontend - HTML Tables Masterclass</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0e17;
+            --bg-primary: #0b0f19;
             --bg-secondary: #111827;
-            --bg-card: rgba(17, 24, 39, 0.7);
-            --bg-card-hover: rgba(31, 41, 55, 0.85);
-            --accent-orange: #f97316;
-            --accent-blue: #38bdf8;
-            --accent-purple: #a855f7;
+            --bg-card: rgba(17, 24, 39, 0.75);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-indigo: #6366f1;
             --accent-emerald: #10b981;
-            --accent-gradient: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #e11d48 100%);
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #6366f1 100%);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
             --border-color: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(249, 115, 22, 0.3);
+            --border-highlight: rgba(59, 130, 246, 0.3);
             --glass-blur: blur(16px);
+            --code-bg: #030712;
         }
 
         * {
@@ -39,23 +42,87 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(249, 115, 22, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 65%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.08) 0%, transparent 45%);
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 45%);
             background-attachment: fixed;
         }
 
-        /* Container & Layout */
+        /* Container & Navigation */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
         }
 
-        /* Header / Hero */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-brand span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            color: #fff;
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        .nav-btn.primary {
+            background: var(--accent-gradient);
+            color: #fff;
+            border: none;
+        }
+
+        .nav-btn.primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 3.5rem 1rem 4rem;
+            padding: 3rem 1rem 4rem;
             position: relative;
         }
 
@@ -63,413 +130,565 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.4rem 1rem;
+            padding: 0.4rem 1.1rem;
             border-radius: 9999px;
-            background: rgba(249, 115, 22, 0.12);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            color: #fb923c;
+            background: rgba(6, 182, 212, 0.12);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            color: #38bdf8;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 1.25rem;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 800;
             line-height: 1.15;
+            letter-spacing: -0.03em;
             margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
         }
 
-        .hero h1 span.gradient-text {
+        .hero h1 span {
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 750px;
+            max-width: 720px;
             margin: 0 auto 2rem;
-        }
-
-        /* Navigation Pills */
-        .quick-nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .quick-nav a {
+            font-size: 1.15rem;
             color: var(--text-secondary);
-            text-decoration: none;
-            padding: 0.6rem 1.25rem;
-            border-radius: 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.25s ease;
         }
 
-        .quick-nav a:hover {
-            color: var(--text-primary);
-            border-color: var(--accent-orange);
-            background: rgba(249, 115, 22, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Section Styling */
-        section {
-            margin-bottom: 5rem;
-            scroll-margin-top: 2rem;
-        }
-
-        .section-header {
-            margin-bottom: 2rem;
-        }
-
-        .section-tag {
-            color: var(--accent-orange);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.4rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        /* Cards Grid */
-        .grid-2 {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2.5rem;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
+        .stat-card {
             background: var(--bg-card);
             backdrop-filter: var(--glass-blur);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.75rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            border-radius: 14px;
+            padding: 1.25rem;
+            text-align: left;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
+        .stat-card:hover {
+            transform: translateY(-3px);
             border-color: var(--border-highlight);
-            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
-            background: var(--bg-card-hover);
         }
 
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .stat-icon {
             font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
         }
 
-        .card h3 {
-            font-size: 1.25rem;
+        .stat-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .stat-val {
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
             color: var(--text-primary);
+            margin-top: 0.25rem;
         }
 
-        .card p {
+        /* Section Headings */
+        .section-header {
+            margin: 4rem 0 2rem;
+            text-align: left;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            margin-top: 0.5rem;
+            max-width: 700px;
         }
 
-        /* Three Pillars Visual */
-        .pillars-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .pillar-card {
+        /* Table Anatomy Diagram */
+        .anatomy-container {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 2rem;
-            text-align: center;
-            position: relative;
+            backdrop-filter: var(--glass-blur);
+            margin-bottom: 3rem;
         }
 
-        .pillar-card.highlight {
-            border-color: rgba(249, 115, 22, 0.5);
-            box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.15);
-        }
-
-        .pillar-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pillar-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .pillar-role {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-        }
-
-        .role-html { background: rgba(249, 115, 22, 0.15); color: #fb923c; }
-        .role-css { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
-        .role-js { background: rgba(234, 179, 8, 0.15); color: #facc15; }
-
-        /* Code Snippet Box */
-        .code-box {
-            background: #0d1117;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            overflow: hidden;
+        .anatomy-tree {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
-        .code-header {
+        .tag-block {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+        }
+
+        .tag-block:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .tag-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-role {
+            font-size: 0.85rem;
+            color: var(--accent-emerald);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Interactive Showcase */
+        .demo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: var(--glass-blur);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .demo-toolbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.75rem 1.25rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
+            padding: 1rem 1.5rem;
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .code-dots {
+        .demo-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .demo-pill {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pill-beginner { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .pill-semantic { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .pill-advanced { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .pill-styled   { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+
+        .demo-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .demo-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            border-color: var(--accent-cyan);
+        }
+
+        .tab-btn.active {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .demo-body {
+            padding: 1.5rem;
+        }
+
+        .view-panel {
+            display: none;
+        }
+
+        .view-panel.active {
+            display: block;
+        }
+
+        /* Modern Live Table Styling inside showcase */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .custom-table th, 
+        .custom-table td {
+            padding: 1rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .custom-table th {
+            background: rgba(30, 41, 59, 0.6);
+            color: #f1f5f9;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .custom-table tbody tr {
+            transition: background 0.15s ease;
+        }
+
+        .custom-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .custom-table caption {
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding-bottom: 0.75rem;
+            text-align: left;
+            color: #38bdf8;
+        }
+
+        .custom-table tfoot {
+            font-weight: 700;
+            background: rgba(15, 23, 42, 0.6);
+            color: #38bdf8;
+        }
+
+        /* Spanning specific styles */
+        .cell-span {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .cell-break {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fcd34d;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .cell-lab {
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Code Block View */
+        pre {
+            background: var(--code-bg);
+            border-radius: 12px;
+            padding: 1.25rem;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* Interactive Playground */
+        .playground-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .playground-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .editor-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        #codeEditor {
+            width: 100%;
+            height: 340px;
+            background: var(--code-bg);
+            color: #38bdf8;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            resize: vertical;
+            outline: none;
+            line-height: 1.5;
+        }
+
+        #codeEditor:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .preview-wrap {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            min-height: 340px;
+        }
+
+        .reset-btn {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #f87171;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: rgba(239, 68, 68, 0.25);
+        }
+
+        /* Spanning Visual Explainer */
+        .span-explainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .span-explainer {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .span-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .span-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .diagram-grid {
+            display: grid;
+            gap: 6px;
+            margin: 1.25rem 0;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .diag-row {
             display: flex;
             gap: 6px;
         }
 
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-        .dot-red { background: #ef4444; }
-        .dot-yellow { background: #f59e0b; }
-        .dot-green { background: #10b981; }
-
-        pre {
-            padding: 1.25rem;
-            overflow-x: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #e2e8f0;
-        }
-
-        .code-tag { color: #f43f5e; }
-        .code-attr { color: #38bdf8; }
-        .code-val { color: #a3e635; }
-        .code-comment { color: #64748b; font-style: italic; }
-
-        /* Interactive Element Breakdown */
-        .element-anatomy {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 2.5rem 1.5rem;
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px dashed rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-        }
-
-        .anatomy-part {
-            position: relative;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .anatomy-part:hover {
-            transform: translateY(-2px);
-        }
-
-        .anatomy-part::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: -32px;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            background: #0f172a;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #f8fafc;
-            font-size: 0.75rem;
-            padding: 0.2rem 0.6rem;
+        .diag-cell {
+            padding: 12px 8px;
             border-radius: 6px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            z-index: 10;
-        }
-
-        .anatomy-part:hover::after {
-            opacity: 1;
-        }
-
-        .part-tag { background: rgba(244, 63, 94, 0.15); border-color: rgba(244, 63, 94, 0.3); color: #f43f5e; }
-        .part-attr { background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8; }
-        .part-content { background: rgba(250, 204, 21, 0.15); border-color: rgba(250, 204, 21, 0.3); color: #facc15; }
-
-        /* Advantage Badges */
-        .advantage-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.75rem;
-            display: flex;
-            gap: 1.25rem;
-            align-items: flex-start;
-            transition: all 0.25s ease;
-        }
-
-        .advantage-card:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            transform: translateX(4px);
-            background: var(--bg-card-hover);
-        }
-
-        .advantage-num {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: rgba(16, 185, 129, 0.12);
-            color: #34d399;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 0.95rem;
-            border: 1px solid rgba(16, 185, 129, 0.25);
-        }
-
-        /* Semantic Layout Blueprint */
-        .blueprint {
-            background: rgba(15, 23, 42, 0.9);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
+            flex: 1;
         }
 
-        .blueprint-header, .blueprint-nav, .blueprint-footer {
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px dashed rgba(56, 189, 248, 0.3);
+        .diag-cell.merged {
+            background: rgba(6, 182, 212, 0.25);
+            border-color: var(--accent-cyan);
             color: #38bdf8;
-            padding: 0.75rem;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 600;
+            flex: 2;
         }
 
-        .blueprint-body {
+        .diag-cell.merged-row {
+            background: rgba(168, 85, 247, 0.25);
+            border-color: var(--accent-purple);
+            color: #d8b4fe;
+        }
+
+        /* FAQ & Best Practices */
+        .rules-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 0.75rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        .blueprint-main {
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px dashed rgba(249, 115, 22, 0.3);
-            color: #fb923c;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 600;
+        @media (max-width: 768px) {
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .rule-card {
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .rule-card.do {
+            background: rgba(16, 185, 129, 0.05);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .rule-card.dont {
+            background: rgba(239, 68, 68, 0.05);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .rule-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 0.5rem;
         }
 
-        .blueprint-sub {
-            background: rgba(249, 115, 22, 0.15);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            padding: 0.5rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
+        .rule-card.do .rule-header { color: #34d399; }
+        .rule-card.dont .rule-header { color: #f87171; }
+
+        .rule-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
         }
 
-        .blueprint-aside {
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px dashed rgba(168, 85, 247, 0.3);
-            color: #c084fc;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 600;
+        .rule-list li {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 0.5rem;
         }
 
         /* Footer */
         footer {
+            margin-top: 5rem;
+            padding-top: 2.5rem;
             border-top: 1px solid var(--border-color);
-            padding: 3rem 1.5rem;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
         footer a {
-            color: var(--accent-orange);
+            color: var(--accent-cyan);
             text-decoration: none;
         }
 
@@ -477,260 +696,662 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            .blueprint-body {
-                grid-template-columns: 1fr;
-            }
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10b981;
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Hero Header -->
-        <header class="hero">
-            <div class="badge">🚀 Frontend Web Mastery Series</div>
-            <h1>Day 1: <span class="gradient-text">HTML Fundamentals</span></h1>
-            <p>Understand the core theory, architecture, essential building blocks, and pivotal advantages of HyperText Markup Language.</p>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-brand">
+                <span>⚡ Frontend Roadmap</span>
+                <span style="color: var(--text-muted); font-weight: 400;">/ Day 2</span>
+            </div>
+            <div class="nav-links">
+                <a href="basic-tables.html" class="nav-btn" target="_blank" title="Clean raw beginner HTML file">
+                    📄 Basic Code File
+                </a>
+                <a href="https://github.com/harish-0987/DAY-1-OF-FRONTEND" class="nav-btn" target="_blank">
+                    ← Day 1 Repo
+                </a>
+                <a href="https://github.com/harish-0987/DAY-2-OF-FRONTEND" class="nav-btn primary" target="_blank">
+                    ⭐ Day 2 GitHub
+                </a>
+            </div>
+        </nav>
 
-            <nav class="quick-nav">
-                <a href="#what-is-html">What is HTML?</a>
-                <a href="#three-pillars">The 3 Pillars</a>
-                <a href="#structure">Document Structure</a>
-                <a href="#anatomy">Element Anatomy</a>
-                <a href="#advantages">10 Key Advantages</a>
-                <a href="#semantics">Semantic HTML</a>
-            </nav>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="badge">Day 02 • HTML Tabular Data</div>
+            <h1>Mastering <span>HTML Tables</span> &amp; Layouts</h1>
+            <p>
+                From simple 2×2 grids to semantic tabular architectures with <code>colspan</code>, <code>rowspan</code>, and modern responsive patterns.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🧱</div>
+                    <div class="stat-title">Core Tags</div>
+                    <div class="stat-val">&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏛️</div>
+                    <div class="stat-title">Semantic Blocks</div>
+                    <div class="stat-val">&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔀</div>
+                    <div class="stat-title">Cell Merging</div>
+                    <div class="stat-val">colspan &amp; rowspan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">♿</div>
+                    <div class="stat-title">Accessibility</div>
+                    <div class="stat-val">scope &amp; &lt;caption&gt;</div>
+                </div>
+            </div>
         </header>
 
-        <!-- 1. What is HTML -->
-        <section id="what-is-html">
+        <!-- Anatomy of a Table -->
+        <section>
             <div class="section-header">
-                <div class="section-tag">Foundation</div>
-                <h2 class="section-title">💡 1. What is HTML?</h2>
+                <span class="section-tag">Hierarchy &amp; Architecture</span>
+                <h2>Anatomy of an HTML Table</h2>
+                <p>An HTML table organizes information into a grid of rows and columns using specialized tags:</p>
             </div>
 
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-icon">&lt;/&gt;</div>
-                    <h3>HyperText Markup Language</h3>
-                    <p>
-                        HTML is the global standard markup language used to structure web pages and organize text, hyperlinks, images, and audio/video files so web browsers can render them.
+            <div class="anatomy-container">
+                <div class="anatomy-tree">
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;table&gt;</div>
+                        <div class="tag-role">Wrapper Element</div>
+                        <div class="tag-desc">Defines the root boundary of the table container. All rows and columns live inside.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;caption&gt;</div>
+                        <div class="tag-role">Title / Summary</div>
+                        <div class="tag-desc">Provides a visible, accessible title placed immediately after the opening &lt;table&gt; tag.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;thead&gt;</div>
+                        <div class="tag-role">Header Group</div>
+                        <div class="tag-desc">Encapsulates the column headings row. Allows sticky headers when scrolling.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;tbody&gt;</div>
+                        <div class="tag-role">Data Body</div>
+                        <div class="tag-desc">Houses the primary dataset rows. Browsers can scroll tbody while keeping thead locked.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;tfoot&gt;</div>
+                        <div class="tag-role">Footer Summary</div>
+                        <div class="tag-desc">Contains calculation summaries, grand totals, or footnotes at the bottom of the table.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;tr&gt;</div>
+                        <div class="tag-role">Table Row</div>
+                        <div class="tag-desc">Defines a horizontal row. Every cell (&lt;th&gt; or &lt;td&gt;) must be enclosed within a &lt;tr&gt;.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;th&gt;</div>
+                        <div class="tag-role">Header Cell</div>
+                        <div class="tag-desc">Renders bold and centered by default. Identifies row/column meaning for screen readers.</div>
+                    </div>
+                    <div class="tag-block">
+                        <div class="tag-code">&lt;td&gt;</div>
+                        <div class="tag-role">Standard Data Cell</div>
+                        <div class="tag-desc">Regular content container (numbers, names, badges, buttons, images).</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colspan and Rowspan Visualizer -->
+        <section>
+            <div class="section-header">
+                <span class="section-tag">Cell Merging Concept</span>
+                <h2>Understanding Colspan vs Rowspan</h2>
+                <p>Merging cells is one of the most important skills in table authoring:</p>
+            </div>
+
+            <div class="span-explainer">
+                <div class="span-card">
+                    <h3><span>↔️</span> colspan="2" (Horizontal Merge)</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Spans across <strong>columns</strong>. Cell expands sideways to take up the space of 2 or more horizontal columns.
                     </p>
+                    <div class="diagram-grid">
+                        <div class="diag-row">
+                            <div class="diag-cell merged">colspan="2" (Col 1 + Col 2)</div>
+                            <div class="diag-cell">Col 3</div>
+                        </div>
+                        <div class="diag-row">
+                            <div class="diag-cell">Col 1</div>
+                            <div class="diag-cell">Col 2</div>
+                            <div class="diag-cell">Col 3</div>
+                        </div>
+                    </div>
+                    <code>&lt;td colspan="2"&gt;Merged Cells&lt;/td&gt;</code>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🧠</div>
-                    <h3>Markup vs. Programming Language</h3>
-                    <p>
-                        HTML is <strong>not</strong> a programming language. It possesses no conditional loops, functions, or variable logic. Instead, it uses <strong>tags</strong> to define how content is arranged and semantically classified.
+
+                <div class="span-card">
+                    <h3><span>↕️</span> rowspan="2" (Vertical Merge)</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Spans across <strong>rows</strong>. Cell expands downwards to take up the space of 2 or more vertical rows.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. The Three Pillars -->
-        <section id="three-pillars">
-            <div class="section-header">
-                <div class="section-tag">Architecture</div>
-                <h2 class="section-title">🏛️ 2. The 3 Pillars of Frontend</h2>
-            </div>
-
-            <div class="pillars-container">
-                <div class="pillar-card highlight">
-                    <div class="pillar-icon">🦴</div>
-                    <div class="pillar-title">HTML</div>
-                    <span class="pillar-role role-html">Skeleton & Bones</span>
-                    <p>Defines content, semantic structure, links, headings, paragraphs, and media elements.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">🎨</div>
-                    <div class="pillar-title">CSS</div>
-                    <span class="pillar-role role-css">Skin & Styling</span>
-                    <p>Manages colors, typography, responsive grids, fluid layouts, glassmorphism, and animations.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon">⚡</div>
-                    <div class="pillar-title">JavaScript</div>
-                    <span class="pillar-role role-js">Muscles & Logic</span>
-                    <p>Handles user interactions, API fetching, real-time validations, algorithms, and dynamic state.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Document Structure -->
-        <section id="structure">
-            <div class="section-header">
-                <div class="section-tag">Boilerplate</div>
-                <h2 class="section-title">📄 3. Anatomy of an HTML Document</h2>
-            </div>
-
-            <div class="card">
-                <p>Every HTML5 document requires this fundamental skeleton to render properly across all modern web browsers:</p>
-                
-                <div class="code-box">
-                    <div class="code-header">
-                        <div class="code-dots">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
+                    <div class="diagram-grid">
+                        <div class="diag-row">
+                            <div class="diag-cell merged-row">rowspan="2"<br>(Row 1 + Row 2)</div>
+                            <div class="diag-cell">Row 1, Col 2</div>
                         </div>
-                        <span>index.html</span>
-                    </div>
-                    <pre><code><span class="code-tag">&lt;!DOCTYPE html&gt;</span> <span class="code-comment">&lt;!-- Declares this document as modern HTML5 --&gt;</span>
-<span class="code-tag">&lt;html</span> <span class="code-attr">lang</span>=<span class="code-val">"en"</span><span class="code-tag">&gt;</span> <span class="code-comment">&lt;!-- Root element of the web document --&gt;</span>
-<span class="code-tag">&lt;head&gt;</span>
-    <span class="code-tag">&lt;meta</span> <span class="code-attr">charset</span>=<span class="code-val">"UTF-8"</span><span class="code-tag">&gt;</span> <span class="code-comment">&lt;!-- Supports universal UTF-8 characters --&gt;</span>
-    <span class="code-tag">&lt;meta</span> <span class="code-attr">name</span>=<span class="code-val">"viewport"</span> <span class="code-attr">content</span>=<span class="code-val">"width=device-width, initial-scale=1.0"</span><span class="code-tag">&gt;</span> <span class="code-comment">&lt;!-- Mobile responsive --&gt;</span>
-    <span class="code-tag">&lt;title&gt;</span>Day 1 - HTML Fundamentals<span class="code-tag">&lt;/title&gt;</span> <span class="code-comment">&lt;!-- Appears on browser tab --&gt;</span>
-<span class="code-tag">&lt;/head&gt;</span>
-<span class="code-tag">&lt;body&gt;</span>
-    <span class="code-tag">&lt;h1&gt;</span>Hello World!<span class="code-tag">&lt;/h1&gt;</span> <span class="code-comment">&lt;!-- Primary visible heading --&gt;</span>
-    <span class="code-tag">&lt;p&gt;</span>This is the body content displayed to visitors.<span class="code-tag">&lt;/p&gt;</span>
-<span class="code-tag">&lt;/body&gt;</span>
-<span class="code-tag">&lt;/html&gt;</span></code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Anatomy of an Element -->
-        <section id="anatomy">
-            <div class="section-header">
-                <div class="section-tag">Syntax</div>
-                <h2 class="section-title">🧩 4. Anatomy of an HTML Element</h2>
-            </div>
-
-            <div class="card">
-                <p>Hover over the colored parts below to see their functional definition:</p>
-                <div class="element-anatomy">
-                    <span class="anatomy-part part-tag" data-tooltip="Opening Tag: Initiates element">&lt;p</span>
-                    <span class="anatomy-part part-attr" data-tooltip="Attribute Name: Configuration key">class</span>=<span class="anatomy-part part-attr" data-tooltip="Attribute Value: CSS styling hook">"lead-text"</span><span class="anatomy-part part-tag" data-tooltip="Closing opening bracket">&gt;</span>
-                    <span class="anatomy-part part-content" data-tooltip="Content: Visible text or nested tags">Welcome to Day 1!</span>
-                    <span class="anatomy-part part-tag" data-tooltip="Closing Tag: Concludes element with '/'">&lt;/p&gt;</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Advantages of HTML -->
-        <section id="advantages">
-            <div class="section-header">
-                <div class="section-tag">Benefits</div>
-                <h2 class="section-title">🌟 5. Ten Key Advantages of HTML</h2>
-            </div>
-
-            <div class="grid-2">
-                <div class="advantage-card">
-                    <div class="advantage-num">01</div>
-                    <div>
-                        <h3>Easy to Learn & Beginner Friendly</h3>
-                        <p>Intuitive English-like syntax that requires no compilation tools or previous coding experience.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">02</div>
-                    <div>
-                        <h3>Cross-Platform & Universal</h3>
-                        <p>Runs natively on Chrome, Safari, Edge, Firefox, and across Windows, macOS, Linux, Android, and iOS.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">03</div>
-                    <div>
-                        <h3>Free & Open Standard</h3>
-                        <p>Zero software licensing fees or proprietary royalties. Governed openly by the W3C and WHATWG.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">04</div>
-                    <div>
-                        <h3>Ultra-Fast & Lightweight</h3>
-                        <p>Consists of plain text documents parsed instantly by native browser rendering engines without build steps.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">05</div>
-                    <div>
-                        <h3>SEO (Search Engine) Optimized</h3>
-                        <p>Search crawlers (Google, Bing) easily index semantic tags, heading hierarchies, and metadata.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">06</div>
-                    <div>
-                        <h3>Seamless Technology Integration</h3>
-                        <p>Flawlessly binds with CSS for styling, JavaScript for logic, and any backend language or REST API.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">07</div>
-                    <div>
-                        <h3>Built-in Accessibility (a11y)</h3>
-                        <p>Standard HTML elements convey meaningful structural roles to screen readers used by visually impaired users.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">08</div>
-                    <div>
-                        <h3>Native Multimedia Support</h3>
-                        <p>Modern HTML5 supports &lt;video&gt;, &lt;audio&gt;, &lt;canvas&gt;, and &lt;svg&gt; without clunky third-party plugins.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">09</div>
-                    <div>
-                        <h3>Mobile & Responsive Ready</h3>
-                        <p>Responsive viewport tags and fluid media support allow seamless display on smartphones and tablets.</p>
-                    </div>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-num">10</div>
-                    <div>
-                        <h3>Massive Community & Longevity</h3>
-                        <p>Supported by 30+ years of documentation, tutorials, libraries, and backward-compatible standards.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Semantic HTML Blueprint -->
-        <section id="semantics">
-            <div class="section-header">
-                <div class="section-tag">Best Practice</div>
-                <h2 class="section-title">📐 6. Semantic HTML Architecture</h2>
-            </div>
-
-            <div class="card">
-                <p style="margin-bottom: 1.5rem;">Semantic tags define the meaning of each section to developers, search engines, and screen readers:</p>
-                <div class="blueprint">
-                    <div class="blueprint-header">&lt;header&gt; (Logo, Branding, Page Headline)</div>
-                    <div class="blueprint-nav">&lt;nav&gt; (Navigation Links, Menus)</div>
-                    <div class="blueprint-body">
-                        <div class="blueprint-main">
-                            &lt;main&gt; (Primary Page Content)
-                            <div class="blueprint-sub">&lt;section&gt; or &lt;article&gt; (Specific Content Block)</div>
+                        <div class="diag-row">
+                            <!-- Omit cell 1 here because rowspan pushed down -->
+                            <div class="diag-cell" style="opacity: 0.3;">(Spanned from above)</div>
+                            <div class="diag-cell">Row 2, Col 2</div>
                         </div>
-                        <div class="blueprint-aside">&lt;aside&gt;<br>(Sidebar / Related Links)</div>
                     </div>
-                    <div class="blueprint-footer">&lt;footer&gt; (Copyright, Legal, Social Links)</div>
+                    <code>&lt;td rowspan="2"&gt;Spans down 2 rows&lt;/td&gt;</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progressive Code Examples & Interactive Showcase -->
+        <section>
+            <div class="section-header">
+                <span class="section-tag">Hands-on Examples</span>
+                <h2>Progressive Code Showcase</h2>
+                <p>Toggle between the live preview and clean HTML source code with one-click copy:</p>
+            </div>
+
+            <!-- Example 1: Minimal 3x3 Table -->
+            <div class="demo-card" id="demo-1">
+                <div class="demo-toolbar">
+                    <div class="demo-title-wrap">
+                        <span class="demo-pill pill-beginner">Level 1: Beginner</span>
+                        <span class="demo-title">Basic Student Directory</span>
+                    </div>
+                    <div class="demo-actions">
+                        <button class="tab-btn active" onclick="switchTab('demo-1', 'preview')">👁️ Live Preview</button>
+                        <button class="tab-btn" onclick="switchTab('demo-1', 'code')">&lt;/&gt; HTML Code</button>
+                        <button class="copy-btn" onclick="copyCode('code-ex1')">📋 Copy Code</button>
+                    </div>
+                </div>
+                <div class="demo-body">
+                    <div class="view-panel active" id="demo-1-preview">
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Full Name</th>
+                                        <th>Course Track</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#STU-101</td>
+                                        <td>Harish Peddapelly</td>
+                                        <td>Fullstack Web Dev</td>
+                                        <td><span style="color: #34d399; font-weight: 600;">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#STU-102</td>
+                                        <td>Deepak</td>
+                                        <td>Frontend Engineering</td>
+                                        <td><span style="color: #34d399; font-weight: 600;">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#STU-103</td>
+                                        <td>Venkatesh</td>
+                                        <td>Data Engineering</td>
+                                        <td><span style="color: #60a5fa; font-weight: 600;">Enrolled</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="view-panel" id="demo-1-code">
+                        <pre><code id="code-ex1">&lt;!-- Basic 3x3 HTML Table --&gt;
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Student ID&lt;/th&gt;
+    &lt;th&gt;Full Name&lt;/th&gt;
+    &lt;th&gt;Course Track&lt;/th&gt;
+    &lt;th&gt;Status&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;#STU-101&lt;/td&gt;
+    &lt;td&gt;Harish Peddapelly&lt;/td&gt;
+    &lt;td&gt;Fullstack Web Dev&lt;/td&gt;
+    &lt;td&gt;Active&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;#STU-102&lt;/td&gt;
+    &lt;td&gt;Deepak&lt;/td&gt;
+    &lt;td&gt;Frontend Engineering&lt;/td&gt;
+    &lt;td&gt;Active&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;#STU-103&lt;/td&gt;
+    &lt;td&gt;Venkatesh&lt;/td&gt;
+    &lt;td&gt;Data Engineering&lt;/td&gt;
+    &lt;td&gt;Enrolled&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2: Semantic Table with thead, tbody, tfoot, caption -->
+            <div class="demo-card" id="demo-2">
+                <div class="demo-toolbar">
+                    <div class="demo-title-wrap">
+                        <span class="demo-pill pill-semantic">Level 2: Semantic</span>
+                        <span class="demo-title">Shopping Invoice with &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</span>
+                    </div>
+                    <div class="demo-actions">
+                        <button class="tab-btn active" onclick="switchTab('demo-2', 'preview')">👁️ Live Preview</button>
+                        <button class="tab-btn" onclick="switchTab('demo-2', 'code')">&lt;/&gt; HTML Code</button>
+                        <button class="copy-btn" onclick="copyCode('code-ex2')">📋 Copy Code</button>
+                    </div>
+                </div>
+                <div class="demo-body">
+                    <div class="view-panel active" id="demo-2-preview">
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <caption>Order Summary #INV-2026-894</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Product Item</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Unit Rate</th>
+                                        <th scope="col" style="text-align: right;">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Complete HTML &amp; CSS Bootcamp</td>
+                                        <td>1</td>
+                                        <td>$29.00</td>
+                                        <td style="text-align: right;">$29.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>JavaScript Mastery Pro</td>
+                                        <td>1</td>
+                                        <td>$49.00</td>
+                                        <td style="text-align: right;">$49.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frontend Project Kit</td>
+                                        <td>2</td>
+                                        <td>$15.00</td>
+                                        <td style="text-align: right;">$30.00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">Grand Total (Tax Included)</td>
+                                        <td style="text-align: right; color: #38bdf8; font-size: 1.1rem;">$108.00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="view-panel" id="demo-2-code">
+                        <pre><code id="code-ex2">&lt;!-- Semantic Table with caption, thead, tbody, tfoot and scope --&gt;
+&lt;table&gt;
+  &lt;caption&gt;Order Summary #INV-2026-894&lt;/caption&gt;
+  
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Product Item&lt;/th&gt;
+      &lt;th scope="col"&gt;Quantity&lt;/th&gt;
+      &lt;th scope="col"&gt;Unit Rate&lt;/th&gt;
+      &lt;th scope="col"&gt;Subtotal&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Complete HTML &amp;amp; CSS Bootcamp&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;$29.00&lt;/td&gt;
+      &lt;td&gt;$29.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JavaScript Mastery Pro&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;$49.00&lt;/td&gt;
+      &lt;td&gt;$49.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Frontend Project Kit&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;$15.00&lt;/td&gt;
+      &lt;td&gt;$30.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;Grand Total (Tax Included)&lt;/td&gt;
+      &lt;td&gt;$108.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Colspan & Rowspan Timetable -->
+            <div class="demo-card" id="demo-3">
+                <div class="demo-toolbar">
+                    <div class="demo-title-wrap">
+                        <span class="demo-pill pill-advanced">Level 3: Spanning</span>
+                        <span class="demo-title">Timetable with Colspan &amp; Rowspan</span>
+                    </div>
+                    <div class="demo-actions">
+                        <button class="tab-btn active" onclick="switchTab('demo-3', 'preview')">👁️ Live Preview</button>
+                        <button class="tab-btn" onclick="switchTab('demo-3', 'code')">&lt;/&gt; HTML Code</button>
+                        <button class="copy-btn" onclick="copyCode('code-ex3')">📋 Copy Code</button>
+                    </div>
+                </div>
+                <div class="demo-body">
+                    <div class="view-panel active" id="demo-3-preview">
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <caption>Fullstack Bootcamp Weekly Schedule</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Time / Slot</th>
+                                        <th>Mon</th>
+                                        <th>Tue</th>
+                                        <th>Wed</th>
+                                        <th>Thu</th>
+                                        <th>Fri</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>09:00 - 11:00 AM</td>
+                                        <td>HTML5 Basics</td>
+                                        <td>CSS Layouts</td>
+                                        <td>Flexbox &amp; Grid</td>
+                                        <td>JS Syntax</td>
+                                        <td>DOM Events</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:00 - 11:30 AM</td>
+                                        <td colspan="5" class="cell-break">☕ Coffee &amp; Snack Break (Spans 5 Columns)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:30 - 01:00 PM</td>
+                                        <td rowspan="2" class="cell-lab">Hands-on<br>Lab Project<br>(Spans 2 Rows)</td>
+                                        <td>Code Clinic</td>
+                                        <td>API Fetch</td>
+                                        <td>Git Workflows</td>
+                                        <td rowspan="2" class="cell-span">Weekly Capstone<br>Assessment<br>(Spans 2 Rows)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01:00 - 02:00 PM</td>
+                                        <td>Mentorship</td>
+                                        <td>Debugging</td>
+                                        <td>Peer Review</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="view-panel" id="demo-3-code">
+                        <pre><code id="code-ex3">&lt;!-- Timetable with colspan and rowspan --&gt;
+&lt;table border="1"&gt;
+  &lt;caption&gt;Fullstack Bootcamp Weekly Schedule&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Time / Slot&lt;/th&gt;
+      &lt;th&gt;Mon&lt;/th&gt;
+      &lt;th&gt;Tue&lt;/th&gt;
+      &lt;th&gt;Wed&lt;/th&gt;
+      &lt;th&gt;Thu&lt;/th&gt;
+      &lt;th&gt;Fri&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;09:00 - 11:00 AM&lt;/td&gt;
+      &lt;td&gt;HTML5 Basics&lt;/td&gt;
+      &lt;td&gt;CSS Layouts&lt;/td&gt;
+      &lt;td&gt;Flexbox &amp;amp; Grid&lt;/td&gt;
+      &lt;td&gt;JS Syntax&lt;/td&gt;
+      &lt;td&gt;DOM Events&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11:00 - 11:30 AM&lt;/td&gt;
+      &lt;!-- colspan="5" spans across all 5 weekdays --&gt;
+      &lt;td colspan="5" align="center"&gt;☕ Coffee &amp;amp; Snack Break&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11:30 - 01:00 PM&lt;/td&gt;
+      &lt;!-- rowspan="2" spans down into the next row --&gt;
+      &lt;td rowspan="2"&gt;Hands-on Lab Project&lt;/td&gt;
+      &lt;td&gt;Code Clinic&lt;/td&gt;
+      &lt;td&gt;API Fetch&lt;/td&gt;
+      &lt;td&gt;Git Workflows&lt;/td&gt;
+      &lt;td rowspan="2"&gt;Weekly Capstone Assessment&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;01:00 - 02:00 PM&lt;/td&gt;
+      &lt;!-- Notice: Monday and Friday columns are omitted here because they are spanned from above! --&gt;
+      &lt;td&gt;Mentorship&lt;/td&gt;
+      &lt;td&gt;Debugging&lt;/td&gt;
+      &lt;td&gt;Peer Review&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Code Playground -->
+        <section>
+            <div class="section-header">
+                <span class="section-tag">Interactive Sandbox</span>
+                <h2>Live Table Code Playground</h2>
+                <p>Type or modify the HTML table code below. The live browser preview updates automatically in real-time!</p>
+            </div>
+
+            <div class="anatomy-container">
+                <div class="playground-grid">
+                    <div class="editor-wrap">
+                        <div class="editor-header">
+                            <span>✏️ HTML Source Editor</span>
+                            <button class="reset-btn" onclick="resetEditor()">Reset to Default</button>
+                        </div>
+                        <textarea id="codeEditor" spellcheck="false"></textarea>
+                    </div>
+                    <div class="editor-wrap">
+                        <div class="editor-header">
+                            <span>🖥️ Real-time Rendered Output</span>
+                            <span style="color: var(--accent-emerald);">● Live sync</span>
+                        </div>
+                        <div class="preview-wrap" id="livePreviewContainer">
+                            <!-- Rendered Output injects here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices: DOs and DONTs -->
+        <section>
+            <div class="section-header">
+                <span class="section-tag">Industry Standards</span>
+                <h2>HTML Table Best Practices</h2>
+                <p>Crucial guidelines for clean markup, semantic SEO, and modern accessibility:</p>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card do">
+                    <div class="rule-header">
+                        <span>✅</span> DO's (Recommended)
+                    </div>
+                    <ul class="rule-list">
+                        <li><span>✔</span> <strong>Use for Tabular Data Only:</strong> Spreadsheets, schedules, pricing tiers, statistical data, and comparison matrices.</li>
+                        <li><span>✔</span> <strong>Always use <code>&lt;th&gt;</code> for Headers:</strong> Helps assistive technologies and screen readers decipher data associations.</li>
+                        <li><span>✔</span> <strong>Apply <code>scope="col"</code> and <code>scope="row"</code>:</strong> Explicitly links headers to their corresponding data cells.</li>
+                        <li><span>✔</span> <strong>Use <code>&lt;caption&gt;</code>:</strong> Screen reader users can understand table intent without reading all cells.</li>
+                        <li><span>✔</span> <strong>Style with CSS:</strong> Use <code>border-collapse: collapse;</code> instead of obsolete attributes like <code>cellpadding</code> or <code>cellspacing</code>.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-card dont">
+                    <div class="rule-header">
+                        <span>❌</span> DON'Ts (Avoid)
+                    </div>
+                    <ul class="rule-list">
+                        <li><span>✖</span> <strong>Never Use Tables for Page Layout:</strong> Avoid using tables to arrange navbars, sidebars, or headers. Use CSS Flexbox or Grid instead.</li>
+                        <li><span>✖</span> <strong>Never Place Cells Outside <code>&lt;tr&gt;</code>:</strong> Tags like <code>&lt;td&gt;</code> or <code>&lt;th&gt;</code> must always be direct children of a row.</li>
+                        <li><span>✖</span> <strong>Don't Forget Rowspan Balance:</strong> When spanning 2 rows down, remember to omit that cell in the subsequent row so columns don't overflow.</li>
+                        <li><span>✖</span> <strong>Avoid Deprecated Attributes:</strong> Avoid <code>&lt;table border="1" cellpadding="5" bgcolor="red"&gt;</code> in modern code; use CSS styles instead.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>Created for <strong>Day 1 of Frontend</strong> • Repository: <a href="https://github.com/harish-0987/DAY-1-OF-FRONTEND" target="_blank" rel="noopener noreferrer">harish-0987/DAY-1-OF-FRONTEND</a></p>
+            <p>
+                Frontend Development Roadmap • Day 2: HTML Tables | Created for 
+                <a href="https://github.com/harish-0987/DAY-2-OF-FRONTEND" target="_blank">harish-0987/DAY-2-OF-FRONTEND</a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                Built with semantic HTML5, pure CSS3, and vanilla JavaScript.
+            </p>
         </footer>
     </div>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toastNotification">Code copied to clipboard!</div>
+
+    <script>
+        // Tab switching logic for demo cards
+        function switchTab(cardId, tabName) {
+            const card = document.getElementById(cardId);
+            if (!card) return;
+
+            const tabs = card.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const panels = card.querySelectorAll('.view-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            if (tabName === 'preview') {
+                tabs[0].classList.add('active');
+                card.querySelector(`#${cardId}-preview`).classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                card.querySelector(`#${cardId}-code`).classList.add('active');
+            }
+        }
+
+        // Copy code helper with visual toast
+        function copyCode(elementId) {
+            const codeEl = document.getElementById(elementId);
+            if (!codeEl) return;
+
+            navigator.clipboard.writeText(codeEl.innerText).then(() => {
+                showToast("Code copied to clipboard!");
+            }).catch(err => {
+                showToast("Failed to copy code.");
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotification');
+            toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        // Interactive Playground default snippet
+        const defaultSnippet = `<!-- Try editing this table! -->
+<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+  <caption style="font-weight: bold; color: #38bdf8; margin-bottom: 8px;">
+    Quarterly Web Performance Metrics
+  </caption>
+  <thead style="background: rgba(30, 41, 59, 0.8); color: #fff;">
+    <tr>
+      <th style="padding: 10px; border: 1px solid #475569;">Quarter</th>
+      <th style="padding: 10px; border: 1px solid #475569;">Visitors</th>
+      <th style="padding: 10px; border: 1px solid #475569;">Conversion</th>
+      <th style="padding: 10px; border: 1px solid #475569;">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #334155;">Q1 2026</td>
+      <td style="padding: 10px; border: 1px solid #334155;">120,400</td>
+      <td style="padding: 10px; border: 1px solid #334155;">4.2%</td>
+      <td style="padding: 10px; border: 1px solid #334155; color: #34d399;">Target Met</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #334155;">Q2 2026</td>
+      <td style="padding: 10px; border: 1px solid #334155;">185,900</td>
+      <td style="padding: 10px; border: 1px solid #334155;">5.1%</td>
+      <td style="padding: 10px; border: 1px solid #334155; color: #38bdf8;">Surpassed</td>
+    </tr>
+  </tbody>
+  <tfoot style="background: rgba(15, 23, 42, 0.8); font-weight: bold;">
+    <tr>
+      <td colspan="3" style="padding: 10px; border: 1px solid #475569;">Total Traffic</td>
+      <td style="padding: 10px; border: 1px solid #475569; color: #38bdf8;">306,300</td>
+    </tr>
+  </tfoot>
+</table>`;
+
+        const editor = document.getElementById('codeEditor');
+        const preview = document.getElementById('livePreviewContainer');
+
+        function updatePreview() {
+            preview.innerHTML = editor.value;
+        }
+
+        function resetEditor() {
+            editor.value = defaultSnippet;
+            updatePreview();
+        }
+
+        editor.addEventListener('input', updatePreview);
+
+        // Initialize editor on page load
+        resetEditor();
+    </script>
 </body>
 </html>
