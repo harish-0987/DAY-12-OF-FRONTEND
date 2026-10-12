@@ -3,394 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 4 - HTML Forms & Tables</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f1f5f9;
-            color: #1e293b;
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            color: #0f172a;
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: #64748b;
-            font-size: 1rem;
-        }
-
-        .card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .card h2 {
-            font-size: 1.25rem;
-            color: #2563eb;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 2px solid #eff6ff;
-            padding-bottom: 8px;
-        }
-
-        /* Form Grouping & Fields */
-        fieldset {
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            padding: 18px 20px;
-            margin-bottom: 20px;
-        }
-
-        legend {
-            font-weight: 600;
-            color: #334155;
-            padding: 0 8px;
-            font-size: 0.95rem;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-group:last-child {
-            margin-bottom: 0;
-        }
-
-        label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 6px;
-            color: #334155;
-            font-size: 0.9rem;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            color: #1e293b;
-            background-color: #f8fafc;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-            background-color: #ffffff;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .inline-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-        }
-
-        .inline-group label {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: normal;
-            cursor: pointer;
-        }
-
-        .color-picker-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        input[type="color"] {
-            border: none;
-            width: 44px;
-            height: 40px;
-            border-radius: 6px;
-            cursor: pointer;
-            background: none;
-        }
-
-        /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        .btn-primary {
-            background-color: #2563eb;
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-        }
-
-        .btn-secondary {
-            background-color: #e2e8f0;
-            color: #334155;
-        }
-
-        .btn-secondary:hover {
-            background-color: #cbd5e1;
-        }
-
-        /* Table Styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        th, td {
-            padding: 10px 14px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        th {
-            background-color: #f8fafc;
-            color: #475569;
-            font-weight: 600;
-        }
-
-        tr:hover {
-            background-color: #f8fafc;
-        }
-
-        code {
-            background-color: #f1f5f9;
-            color: #d946ef;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.85em;
-        }
-
-        footer {
-            text-align: center;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Day 5 - HTML Text Formatting</title>
 </head>
-<body>
+<body style="font-family: Arial, sans-serif; line-height: 1.8; padding: 20px; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; color: #222;">
 
-    <div class="container">
-        
-        <!-- Header -->
-        <header>
-            <h1>Day 4: HTML Forms &amp; Tables</h1>
-            <p>Mastering user input controls, form validation, and tabular data</p>
-        </header>
+    <h1>Day 5: HTML Text Formatting</h1>
+    <p>This is standard normal paragraph text without any formatting.</p>
 
-        <!-- Topic 1: HTML Form Elements -->
-        <section class="card">
-            <h2>📝 Interactive HTML Form</h2>
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Form submitted successfully!');">
-                
-                <!-- Fieldset 1: Personal Details -->
-                <fieldset>
-                    <legend>Personal Information</legend>
-                    
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" placeholder="e.g. Harish Kumar" required>
-                    </div>
+    <hr>
 
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
-                    </div>
+    <!-- 1. Bold & Strong -->
+    <p><b>Bold text</b> using the &lt;b&gt; tag</p>
+    <p><strong>Strong text</strong> (important text) using the &lt;strong&gt; tag</p>
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Min. 8 characters" required>
-                    </div>
+    <!-- 2. Italic & Emphasized -->
+    <p><i>Italic text</i> using the &lt;i&gt; tag</p>
+    <p><em>Emphasized text</em> using the &lt;em&gt; tag</p>
 
-                    <div class="form-group">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" id="dob" name="dob">
-                    </div>
-                </fieldset>
+    <!-- 3. Highlighted & Small -->
+    <p><mark>Highlighted text</mark> using the &lt;mark&gt; tag</p>
+    <p><small>Smaller text</small> using the &lt;small&gt; tag</p>
 
-                <!-- Fieldset 2: Preferences & Selections -->
-                <fieldset>
-                    <legend>Preferences &amp; Selections</legend>
+    <!-- 4. Deleted & Inserted -->
+    <p>Original price: <del>$100</del> using the &lt;del&gt; tag</p>
+    <p>Sale price: <ins>$80</ins> using the &lt;ins&gt; tag</p>
 
-                    <div class="form-group">
-                        <label>Gender (Radio buttons - Single choice)</label>
-                        <div class="inline-group">
-                            <label><input type="radio" name="gender" value="male"> Male</label>
-                            <label><input type="radio" name="gender" value="female"> Female</label>
-                            <label><input type="radio" name="gender" value="other"> Other</label>
-                        </div>
-                    </div>
+    <!-- 5. Subscript & Superscript -->
+    <p>Chemical formula: H<sub>2</sub>O using the &lt;sub&gt; tag</p>
+    <p>Math expression: (a + b)<sup>2</sup> using the &lt;sup&gt; tag</p>
 
-                    <div class="form-group">
-                        <label>Hobbies (Checkboxes - Multiple choice)</label>
-                        <div class="inline-group">
-                            <label><input type="checkbox" name="hobby" value="coding" checked> Coding</label>
-                            <label><input type="checkbox" name="hobby" value="gaming"> Gaming</label>
-                            <label><input type="checkbox" name="hobby" value="reading"> Reading</label>
-                            <label><input type="checkbox" name="hobby" value="music"> Music</label>
-                        </div>
-                    </div>
+    <!-- 6. Code & Short Quote -->
+    <p>Inline code snippet: <code>console.log("Hello");</code> using the &lt;code&gt; tag</p>
+    <p>Short quote: <q>Practice makes a coder perfect</q> using the &lt;q&gt; tag</p>
 
-                    <div class="form-group">
-                        <label for="country">Country (Dropdown select)</label>
-                        <select id="country" name="country">
-                            <option value="">-- Choose your country --</option>
-                            <option value="india">India</option>
-                            <option value="usa">United States</option>
-                            <option value="uk">United Kingdom</option>
-                            <option value="canada">Canada</option>
-                        </select>
-                    </div>
+    <!-- 7. Abbreviation -->
+    <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr> using the &lt;abbr&gt; tag</p>
 
-                    <div class="form-group color-picker-group">
-                        <div>
-                            <label for="favColor">Favorite Color</label>
-                            <input type="color" id="favColor" name="favColor" value="#2563eb">
-                        </div>
-                        <div>
-                            <label for="expLevel">Experience (Years: 1-10)</label>
-                            <input type="number" id="expLevel" name="expLevel" min="1" max="10" value="1">
-                        </div>
-                    </div>
+    <hr>
 
-                    <div class="form-group">
-                        <label for="bio">Short Bio (Textarea)</label>
-                        <textarea id="bio" name="bio" placeholder="Tell us a little bit about yourself..."></textarea>
-                    </div>
-                </fieldset>
-
-                <!-- Buttons -->
-                <div class="btn-group">
-                    <button type="submit" class="btn-primary">Submit Form</button>
-                    <button type="reset" class="btn-secondary">Reset Fields</button>
-                </div>
-
-            </form>
-        </section>
-
-        <!-- Topic 2: HTML Tables -->
-        <section class="card">
-            <h2>📊 HTML Table Representation</h2>
-            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 12px;">
-                Tables organize data into rows (<code>&lt;tr&gt;</code>), headers (<code>&lt;th&gt;</code>), and data cells (<code>&lt;td&gt;</code>).
-            </p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Element</th>
-                        <th>Type / Tag</th>
-                        <th>Usage Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>&lt;form&gt;</code></td>
-                        <td>Container</td>
-                        <td>Defines an interactive form for user input</td>
-                    </tr>
-                    <tr>
-                        <td><code>&lt;input&gt;</code></td>
-                        <td>Void Tag</td>
-                        <td>Collects text, email, password, dates, radio, etc.</td>
-                    </tr>
-                    <tr>
-                        <td><code>&lt;select&gt;</code></td>
-                        <td>Dropdown</td>
-                        <td>Provides a selectable list of options</td>
-                    </tr>
-                    <tr>
-                        <td><code>&lt;textarea&gt;</code></td>
-                        <td>Multi-line</td>
-                        <td>Input for longer descriptions or comments</td>
-                    </tr>
-                    <tr>
-                        <td><code>&lt;table&gt;</code></td>
-                        <td>Tabular</td>
-                        <td>Organizes structured information in grid format</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>Day 4 of Frontend Development • <a href="https://github.com/harish-0987/DAY-4-OF-FRONTEND" target="_blank">View GitHub Repo</a></p>
-        </footer>
-
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Day 5 of Frontend Development</p>
+    </footer>
 
 </body>
 </html>
