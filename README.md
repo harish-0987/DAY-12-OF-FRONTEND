@@ -1,51 +1,101 @@
-# 🌐 Day 3 of Frontend: Basic HTML Elements
+# 🌐 Day 4 of Frontend: HTML Forms & Tables
 
-Welcome to **Day 3 of Frontend Development**! Today's focus is on fundamental **HTML Elements** — the essential building blocks used to construct any webpage.
+Welcome to **Day 4 of Frontend Development**! Today's focus is on two essential concepts for building interactive and structured web pages: **HTML Forms** and **HTML Tables**.
 
-Repository: [harish-0987/DAY3-OF-FRONTEND](https://github.com/harish-0987/DAY3-OF-FRONTEND)
+Repository: [harish-0987/DAY-4-OF-FRONTEND](https://github.com/harish-0987/DAY-4-OF-FRONTEND)
 
 ---
 
-## 📌 What is an HTML Element?
+## 📌 Topic 1: HTML Forms (`<form>`)
 
-An **HTML element** is everything from the start tag to the end tag:
-- **Opening tag**: `<tagname>`
-- **Content**: The information displayed
-- **Closing tag**: `</tagname>`
+Forms allow websites to gather user input (e.g., login credentials, registration details, searches, feedback).
+
+### Essential Form Elements & Attributes:
+- `<form>`: The wrapper container for input controls (`action` defines destination, `method` defines HTTP method like GET/POST).
+- `<label>`: Associates text with form controls using the `for` attribute matching the input's `id`.
+- `<input>`: Versatile self-closing element with multiple `type` variants:
+  - `type="text"`: Standard single-line text input
+  - `type="email"`: Email input with automatic browser format validation
+  - `type="password"`: Masked characters for secret credentials
+  - `type="number"`: Numeric input with optional `min` and `max`
+  - `type="date"`: Date picker
+  - `type="radio"`: Single choice among grouped options (sharing same `name`)
+  - `type="checkbox"`: Multiple choice selections
+  - `type="color"`: Color picker tool
+- `<select>` & `<option>`: Dropdown selection menu
+- `<textarea>`: Multi-line text field
+- `<fieldset>` & `<legend>`: Groups related form fields with an accessible title
+- `<button>`: Triggers actions like `type="submit"` or `type="reset"`
 
 ```html
-<p>This is a paragraph element.</p>
+<form action="/submit" method="POST">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+  <button type="submit">Submit</button>
+</form>
 ```
-
-> **Note:** Some elements are **self-closing** (void elements), such as `<img>`, `<br>`, and `<input>`, which do not require a closing tag.
 
 ---
 
-## 🏷️ Key HTML Elements Covered
+## 📌 Topic 2: HTML Tables (`<table>`)
 
-| Element | Name | Purpose | Example |
-|---|---|---|---|
-| `<h1>` - `<h6>` | Headings | Defines page titles & section headers | `<h1>Title</h1>` |
-| `<p>` | Paragraph | Contains blocks of text | `<p>Text here</p>` |
-| `<strong>` / `<em>` | Formatting | Bold and emphasized text | `<strong>Bold</strong>` |
-| `<a>` | Anchor (Link) | Navigates to external or internal links | `<a href="url">Link</a>` |
-| `<img>` | Image | Embeds an image | `<img src="pic.jpg" alt="pic">` |
-| `<ul>`, `<ol>`, `<li>` | Lists | Unordered / Ordered item lists | `<ul><li>Item</li></ul>` |
-| `<input>` | Input Field | Collects user text or data | `<input type="text">` |
-| `<button>` | Button | Clickable action button | `<button>Click</button>` |
+Tables are used to present structured, tabular data in rows and columns.
+
+### Key Table Elements:
+- `<table>`: The container element.
+- `<thead>`: Groups header content.
+- `<tbody>`: Groups body data rows.
+- `<tr>`: Table row.
+- `<th>`: Header cell (bold and centered by default).
+- `<td>`: Standard data cell.
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Harish</td>
+      <td>Frontend Developer</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+## 🏷️ Summary Comparison Table
+
+| Element | Tag | Purpose |
+|---|---|---|
+| Form Container | `<form>` | Wraps interactive inputs for data submission |
+| Input Control | `<input>` | Accepts various types of user data |
+| Dropdown List | `<select>` + `<option>` | Provides list of options in a collapsible menu |
+| Multi-line Text | `<textarea>` | Long-form user comments and descriptions |
+| Grouping Box | `<fieldset>` + `<legend>` | Visually and semantically groups related inputs |
+| Table Structure | `<table>`, `<tr>`, `<th>`, `<td>` | Displays structured two-dimensional information |
 
 ---
 
 ## 💻 Code Preview
 
-The `index.html` file contains a concise, beginner-friendly demonstration of all the elements above with clean CSS styling.
+The [index.html](file:///c:/Users/pedda/OneDrive/Desktop/HTML/index.html) file demonstrates:
+1. A complete registration card featuring text, email, password, radio buttons, checkboxes, dropdown select, date picker, color picker, and textarea.
+2. Form field grouping with `<fieldset>` and `<legend>`.
+3. Clean submission button and reset button.
+4. A styled HTML summary table.
+5. Modern, beginner-friendly CSS styling.
 
 ---
 
-## 🚀 How to View
+## 🚀 How to Run Locally
 
-1. Clone this repository:
+1. Clone or pull this repository:
    ```bash
-   git clone https://github.com/harish-0987/DAY3-OF-FRONTEND.git
+   git clone https://github.com/harish-0987/DAY-4-OF-FRONTEND.git
    ```
-2. Double-click `index.html` to open it in your browser.
+2. Open [index.html](file:///c:/Users/pedda/OneDrive/Desktop/HTML/index.html) in your browser (e.g. double click or use VS Code Live Server).
