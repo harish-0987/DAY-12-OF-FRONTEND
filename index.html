@@ -3,47 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 - HTML Text Formatting</title>
+    <title>Day 6 - HTML Links and Media</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            padding: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        h1, h2, h3 {
+            color: #0f172a;
+        }
+        h1 {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        .section-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .quick-nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .quick-nav a {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .quick-nav a:hover {
+            background-color: #c7d2fe;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #1d4ed8;
+        }
+        .demo-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            margin: 12px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .avatar-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #3b82f6;
+        }
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+        figcaption {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        audio, video, iframe {
+            width: 100%;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+        iframe {
+            border: 1px solid #cbd5e1;
+            height: 315px;
+        }
+        code {
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #d946ef;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #64748b;
+            padding: 20px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.8; padding: 20px; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; color: #222;">
+<body>
 
-    <h1>Day 5: HTML Text Formatting</h1>
-    <p>This is standard normal paragraph text without any formatting.</p>
+    <header>
+        <h1>Day 6: HTML Links & Media</h1>
+        <p>A beginner-friendly guide demonstrating hyperlinks (<code>&lt;a&gt;</code>) and media elements (<code>&lt;img&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;iframe&gt;</code>) in HTML.</p>
 
-    <hr>
+        <!-- Navigation Bar / Internal Bookmark Links -->
+        <nav class="quick-nav">
+            <a href="#links-section">🔗 Hyperlinks</a>
+            <a href="#images-section">🖼️ Images</a>
+            <a href="#audio-section">🎵 Audio</a>
+            <a href="#video-section">🎬 Video</a>
+            <a href="#iframe-section">🌐 iFrame Embed</a>
+        </nav>
+    </header>
 
-    <!-- 1. Bold & Strong -->
-    <p><b>Bold text</b> using the &lt;b&gt; tag</p>
-    <p><strong>Strong text</strong> (important text) using the &lt;strong&gt; tag</p>
+    <!-- SECTION 1: HYPERLINKS -->
+    <section id="links-section" class="section-card">
+        <h2>1. HTML Hyperlinks (<code>&lt;a&gt;</code> Tag)</h2>
+        <p>The anchor tag defines hyperlinks used to navigate between web pages, sections, or external sites.</p>
 
-    <!-- 2. Italic & Emphasized -->
-    <p><i>Italic text</i> using the &lt;i&gt; tag</p>
-    <p><em>Emphasized text</em> using the &lt;em&gt; tag</p>
+        <!-- External Link -->
+        <div class="demo-box">
+            <p><strong>External Link (opens in new tab):</strong></p>
+            <a href="https://github.com/harish-0987/DAY-6-OF-FRONTEND" target="_blank" rel="noopener noreferrer">
+                Visit GitHub Repository (DAY-6-OF-FRONTEND)
+            </a>
+            <br><small>Uses <code>target="_blank"</code> and <code>rel="noopener noreferrer"</code> for security.</small>
+        </div>
 
-    <!-- 3. Highlighted & Small -->
-    <p><mark>Highlighted text</mark> using the &lt;mark&gt; tag</p>
-    <p><small>Smaller text</small> using the &lt;small&gt; tag</p>
+        <!-- Internal / Anchor Link -->
+        <div class="demo-box">
+            <p><strong>Internal Bookmark Link:</strong></p>
+            <a href="#video-section">Jump directly to the Video Section &darr;</a>
+            <br><small>Uses <code>href="#element-id"</code> to jump to any element on the current page.</small>
+        </div>
 
-    <!-- 4. Deleted & Inserted -->
-    <p>Original price: <del>$100</del> using the &lt;del&gt; tag</p>
-    <p>Sale price: <ins>$80</ins> using the &lt;ins&gt; tag</p>
+        <!-- Mailto Link -->
+        <div class="demo-box">
+            <p><strong>Email Link (mailto):</strong></p>
+            <a href="mailto:student@example.com?subject=Day%206%20HTML%20Feedback">Send an Email</a>
+            <br><small>Opens default mail client using <code>href="mailto:address"</code>.</small>
+        </div>
 
-    <!-- 5. Subscript & Superscript -->
-    <p>Chemical formula: H<sub>2</sub>O using the &lt;sub&gt; tag</p>
-    <p>Math expression: (a + b)<sup>2</sup> using the &lt;sup&gt; tag</p>
+        <!-- Telephone Link -->
+        <div class="demo-box">
+            <p><strong>Telephone Link (tel):</strong></p>
+            <a href="tel:+1234567890">Call Support (+1 234 567 890)</a>
+            <br><small>Dials phone number on mobile devices using <code>href="tel:number"</code>.</small>
+        </div>
 
-    <!-- 6. Code & Short Quote -->
-    <p>Inline code snippet: <code>console.log("Hello");</code> using the &lt;code&gt; tag</p>
-    <p>Short quote: <q>Practice makes a coder perfect</q> using the &lt;q&gt; tag</p>
+        <!-- Download Link -->
+        <div class="demo-box">
+            <p><strong>Download Link:</strong></p>
+            <a href="avatar.jpg" download="profile-avatar.jpg">Download Avatar Image</a>
+            <br><small>Prompts the user to save file using <code>download</code> attribute.</small>
+        </div>
+    </section>
 
-    <!-- 7. Abbreviation -->
-    <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr> using the &lt;abbr&gt; tag</p>
+    <!-- SECTION 2: IMAGES -->
+    <section id="images-section" class="section-card">
+        <h2>2. HTML Images (<code>&lt;img&gt;</code> &amp; <code>&lt;figure&gt;</code>)</h2>
+        <p>The <code>&lt;img&gt;</code> tag embeds image files into HTML. Always supply the <code>alt</code> attribute for accessibility and SEO.</p>
 
-    <hr>
+        <!-- Basic Image -->
+        <div class="demo-box">
+            <h3>Basic Image with Circular Style</h3>
+            <img src="avatar.jpg" alt="User Profile Avatar" class="avatar-img" width="120" height="120" loading="lazy">
+            <p><small>Attributes: <code>src="avatar.jpg"</code>, <code>alt="User Profile Avatar"</code>, <code>loading="lazy"</code></small></p>
+        </div>
+
+        <!-- Clickable Image Link -->
+        <div class="demo-box">
+            <h3>Clickable Image (Image Wrapped in an Anchor Tag)</h3>
+            <a href="https://github.com/harish-0987" target="_blank" rel="noopener noreferrer">
+                <img src="avatar.jpg" alt="Click to open GitHub Profile" style="width: 80px; height: 80px; border-radius: 8px;">
+            </a>
+            <br><small>Click the avatar above to open the author profile.</small>
+        </div>
+
+        <!-- Figure & Figcaption -->
+        <div class="demo-box">
+            <h3>Image with Semantic Caption (<code>&lt;figure&gt;</code> &amp; <code>&lt;figcaption&gt;</code>)</h3>
+            <figure>
+                <img src="project-preview.jpg" alt="Project Preview Screenshot" style="max-height: 280px; width: 100%; object-fit: cover;">
+                <figcaption>Figure 1: Day 6 Frontend Project Preview</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- SECTION 3: AUDIO -->
+    <section id="audio-section" class="section-card">
+        <h2>3. HTML Audio (<code>&lt;audio&gt;</code> Tag)</h2>
+        <p>The <code>&lt;audio&gt;</code> tag plays sound files. The <code>controls</code> attribute provides play/pause and volume controls.</p>
+
+        <div class="demo-box">
+            <p><strong>Audio Player:</strong></p>
+            <audio controls preload="metadata">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <br><small>Includes fallback text for browsers that don't support HTML5 audio.</small>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VIDEO -->
+    <section id="video-section" class="section-card">
+        <h2>4. HTML Video (<code>&lt;video&gt;</code> Tag)</h2>
+        <p>The <code>&lt;video&gt;</code> tag embeds video clips. Attributes like <code>controls</code>, <code>poster</code>, and <code>width</code> are standard.</p>
+
+        <div class="demo-box">
+            <p><strong>Video Player with Poster:</strong></p>
+            <video controls poster="project-preview.jpg" preload="metadata">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br><small><code>poster="project-preview.jpg"</code> shows preview thumbnail before playback starts.</small>
+        </div>
+    </section>
+
+    <!-- SECTION 5: IFRAME EMBED -->
+    <section id="iframe-section" class="section-card">
+        <h2>5. HTML iFrame (<code>&lt;iframe&gt;</code> Tag)</h2>
+        <p>The <code>&lt;iframe&gt;</code> tag embeds external documents, interactive maps, or videos inside your page.</p>
+
+        <div class="demo-box">
+            <p><strong>Embedded Content (Wikipedia Demo):</strong></p>
+            <iframe 
+                src="https://en.wikipedia.org/wiki/HTML" 
+                title="Wikipedia article on HTML"
+                loading="lazy">
+            </iframe>
+            <br><small>Always specify a descriptive <code>title</code> for accessibility.</small>
+        </div>
+    </section>
+
+    <!-- Back to top link -->
+    <div style="text-align: right; margin-bottom: 20px;">
+        <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">&uarr; Back to Top</a>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Day 5 of Frontend Development</p>
+        <p>&copy; 2026 Day 6 of Frontend Development &bull; <a href="https://github.com/harish-0987/DAY-6-OF-FRONTEND" target="_blank" rel="noopener noreferrer">harish-0987/DAY-6-OF-FRONTEND</a></p>
     </footer>
 
 </body>
