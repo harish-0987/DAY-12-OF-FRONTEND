@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 7 - HTML Forms</title>
+    <title>Day 8 - Semantic HTML</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,725 +12,126 @@
         }
 
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            padding: 28px 20px;
-            max-width: 860px;
-            margin: 0 auto;
+            max-width: 760px;
+            margin: 32px auto;
+            padding: 0 16px;
             background-color: #f8fafc;
             color: #1e293b;
+        }
+
+        header, nav, main, section, article, aside, footer {
+            padding: 20px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         header {
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 8px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 12px;
-        }
-
-        h2 {
-            font-size: 1.35rem;
-            color: #1e293b;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        p {
-            margin-bottom: 12px;
-            color: #475569;
-        }
-
-        /* Quick Navigation Bar */
-        .quick-nav {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 16px 0 24px;
-        }
-
-        .quick-nav a {
             background-color: #eff6ff;
-            color: #1d4ed8;
-            padding: 7px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            border: 1px solid #bfdbfe;
-            transition: all 0.2s ease;
+            border-color: #bfdbfe;
         }
 
-        .quick-nav a:hover {
-            background-color: #dbeafe;
-            color: #1e40af;
-            transform: translateY(-1px);
-        }
-
-        /* Section Cards */
-        .section-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 24px;
-            margin-bottom: 28px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        }
-
-        .explanation {
-            background-color: #f1f5f9;
-            border-left: 4px solid #3b82f6;
-            padding: 12px 16px;
-            margin-bottom: 18px;
-            border-radius: 0 6px 6px 0;
-            font-size: 14.5px;
-            color: #334155;
-        }
-
-        /* Form Layout Styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-            min-width: 240px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        label {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .helper-text {
-            font-size: 12.5px;
-            color: #64748b;
-        }
-
-        /* Input Controls */
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="tel"],
-        input[type="url"],
-        input[type="search"],
-        input[type="date"],
-        input[type="time"],
-        input[type="file"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 14px;
-            font-family: inherit;
-            background-color: #ffffff;
-            color: #0f172a;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-        }
-
-        input[type="color"] {
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            height: 42px;
-            width: 100%;
-            cursor: pointer;
-            padding: 4px;
-            background: #ffffff;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            accent-color: #2563eb;
-            cursor: pointer;
-        }
-
-        /* Checkbox & Radio */
-        .options-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .option-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: normal;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .option-label input[type="radio"],
-        .option-label input[type="checkbox"] {
-            width: 17px;
-            height: 17px;
-            accent-color: #2563eb;
-            cursor: pointer;
-        }
-
-        /* Fieldset & Legend */
-        fieldset {
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
-        }
-
-        legend {
-            font-weight: 600;
-            font-size: 14px;
-            color: #2563eb;
-            padding: 0 8px;
-        }
-
-        /* Buttons */
-        .button-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
-        }
-
-        button[type="submit"] {
-            background-color: #2563eb;
-            color: #ffffff;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #1d4ed8;
-        }
-
-        button[type="reset"] {
-            background-color: #f1f5f9;
-            color: #475569;
-            border: 1px solid #cbd5e1;
-        }
-
-        button[type="reset"]:hover {
-            background-color: #e2e8f0;
-            color: #0f172a;
-        }
-
-        button[type="button"] {
-            background-color: #f8fafc;
-            color: #0284c7;
-            border: 1px solid #bae6fd;
-        }
-
-        button[type="button"]:hover {
-            background-color: #e0f2fe;
-        }
-
-        /* Result Display Box */
-        .result-box {
-            display: none;
+        nav {
             background-color: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 6px;
-            padding: 14px 18px;
-            margin-top: 16px;
-            color: #166534;
-            font-size: 14px;
+            border-color: #bbf7d0;
         }
 
-        .result-box pre {
-            margin-top: 8px;
-            background-color: #ffffff;
-            border: 1px solid #dcfce7;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-            color: #14532d;
-            font-size: 13px;
+        nav a {
+            margin-right: 18px;
+            color: #15803d;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        code {
-            background-color: #e2e8f0;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 13.5px;
-            color: #db2777;
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        article {
+            background-color: #faf5ff;
+            border-color: #e9d5ff;
+        }
+
+        aside {
+            background-color: #fffbeb;
+            border-color: #fde68a;
+            font-size: 0.92rem;
         }
 
         footer {
+            background-color: #f1f5f9;
             text-align: center;
-            font-size: 14px;
             color: #64748b;
-            padding: 24px 0 12px;
-            border-top: 1px solid #e2e8f0;
+            font-size: 0.88rem;
         }
+
+        .tag-badge {
+            display: inline-block;
+            font-family: Consolas, monospace;
+            font-size: 0.75rem;
+            font-weight: bold;
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        h1 { font-size: 1.75rem; color: #0f172a; margin-bottom: 4px; }
+        h2 { font-size: 1.3rem; color: #334155; margin-bottom: 6px; }
+        h3 { font-size: 1.1rem; color: #92400e; margin-bottom: 4px; }
+        p { color: #475569; margin-bottom: 8px; }
+        time { color: #7c3aed; font-weight: 500; }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Semantic Header: Introduces the page -->
     <header>
-        <h1>Day 7: HTML Forms</h1>
-        <p>A comprehensive, beginner-friendly guide covering HTML form structures, input types, selection menus, fieldsets, and validation controls.</p>
-        
-        <!-- Navigation Links to Sections -->
-        <nav class="quick-nav">
-            <a href="#basic-form">1. Basic Form & Inputs</a>
-            <a href="#input-types">2. Common Input Types</a>
-            <a href="#selection-inputs">3. Selection & Radios</a>
-            <a href="#special-inputs">4. Date, Color & Range</a>
-            <a href="#fieldset-section">5. Grouping with Fieldset</a>
-            <a href="#interactive-demo">6. Full Registration Form</a>
-        </nav>
+        <span class="tag-badge">&lt;header&gt;</span>
+        <h1>Day 8: Semantic HTML</h1>
+        <p>Using meaningful HTML5 tags to structure a webpage clearly.</p>
     </header>
 
-    <!-- SECTION 1: Form Basics & Essential Elements -->
-    <section id="basic-form" class="section-card">
-        <h2>1. Basic Form Structure (<code>&lt;form&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>)</h2>
-        <div class="explanation">
-            <strong>Key Concepts:</strong>
-            <ul style="margin-left: 20px; margin-top: 6px;">
-                <li><code>&lt;form&gt;</code> acts as a container for user input controls. Key attributes are <code>action</code> (URL where data is sent) and <code>method</code> (<code>GET</code> or <code>POST</code>).</li>
-                <li><code>&lt;label for="id"&gt;</code> connects text to an input field. Clicking the label focuses the corresponding input, which improves accessibility and user experience.</li>
-                <li><code>name</code> specifies the key name when sending form data to a server.</li>
-            </ul>
-        </div>
+    <!-- Semantic Nav: Navigation links -->
+    <nav>
+        <span class="tag-badge">&lt;nav&gt;</span>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#articles">Articles</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-        <!-- Demonstration: Simple Login Form -->
-        <form action="#" method="GET" onsubmit="event.preventDefault(); showFeedback('login-result', this);">
-            <div class="form-group">
-                <label for="username">Username or Email: <span style="color: #ef4444;">*</span></label>
-                <!-- type="text" with required and autofocus -->
-                <input type="text" id="username" name="username" placeholder="e.g. john_doe" required autofocus>
-                <span class="helper-text">Required field. Type your unique username.</span>
-            </div>
+    <!-- Semantic Main: Primary document content -->
+    <main>
+        <span class="tag-badge">&lt;main&gt;</span>
 
-            <div class="form-group">
-                <label for="password">Password: <span style="color: #ef4444;">*</span></label>
-                <!-- type="password" hides input characters -->
-                <input type="password" id="password" name="password" placeholder="••••••••" required minlength="6">
-                <span class="helper-text">Must be at least 6 characters long.</span>
-            </div>
+        <!-- Semantic Article: Independent, self-contained content -->
+        <article id="articles">
+            <span class="tag-badge">&lt;article&gt;</span>
+            <h2>Why Use Semantic Elements?</h2>
+            <p>Published: <time datetime="2026-10-15">October 15, 2026</time></p>
+            <p>Semantic tags like <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;nav&gt;</code> replace generic <code>&lt;div&gt;</code> tags. They make your code cleaner, improve accessibility for screen readers, and boost search engine ranking (SEO).</p>
+        </article>
 
-            <div class="button-group">
-                <button type="submit">Log In</button>
-                <button type="reset">Clear</button>
-            </div>
+        <!-- Semantic Aside: Related, secondary content -->
+        <aside>
+            <span class="tag-badge">&lt;aside&gt;</span>
+            <h3>Quick Tip</h3>
+            <p>A document should have only one <code>&lt;main&gt;</code> element that directly contains the unique content of the page.</p>
+        </aside>
+    </main>
 
-            <div id="login-result" class="result-box"></div>
-        </form>
-    </section>
-
-    <!-- SECTION 2: Common Input Types -->
-    <section id="input-types" class="section-card">
-        <h2>2. Common HTML Input Types</h2>
-        <div class="explanation">
-            HTML5 includes specialized input types that provide built-in validation and mobile-friendly virtual keyboards (e.g. email, number, tel, url).
-        </div>
-
-        <form action="#" method="GET" onsubmit="event.preventDefault(); showFeedback('types-result', this);">
-            <div class="form-row">
-                <!-- Email Input -->
-                <div class="form-group">
-                    <label for="user-email">Email Address (<code>type="email"</code>):</label>
-                    <input type="email" id="user-email" name="user_email" placeholder="name@example.com" required>
-                    <span class="helper-text">Validates email syntax automatically.</span>
-                </div>
-
-                <!-- Number Input -->
-                <div class="form-group">
-                    <label for="user-age">Age (<code>type="number"</code>):</label>
-                    <input type="number" id="user-age" name="user_age" min="1" max="120" step="1" placeholder="18">
-                    <span class="helper-text">Restricted with min="1" and max="120".</span>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <!-- Telephone Input -->
-                <div class="form-group">
-                    <label for="user-phone">Phone Number (<code>type="tel"</code>):</label>
-                    <input type="tel" id="user-phone" name="user_phone" placeholder="9876543210" pattern="[0-9]{10}">
-                    <span class="helper-text">Prompts numeric keyboard on mobile devices.</span>
-                </div>
-
-                <!-- URL Input -->
-                <div class="form-group">
-                    <label for="user-portfolio">Portfolio / Website (<code>type="url"</code>):</label>
-                    <input type="url" id="user-portfolio" name="user_portfolio" placeholder="https://example.com">
-                    <span class="helper-text">Must include http:// or https://.</span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <!-- Search Input -->
-                <label for="site-search">Search Query (<code>type="search"</code>):</label>
-                <input type="search" id="site-search" name="search_query" placeholder="Type keywords to search...">
-            </div>
-
-            <div class="button-group">
-                <button type="submit">Submit Inputs</button>
-                <button type="reset">Reset</button>
-            </div>
-
-            <div id="types-result" class="result-box"></div>
-        </form>
-    </section>
-
-    <!-- SECTION 3: Selection Inputs -->
-    <section id="selection-inputs" class="section-card">
-        <h2>3. Selection Inputs (Radio, Checkbox, Select, Datalist)</h2>
-        <div class="explanation">
-            <strong>Key Difference:</strong>
-            <ul style="margin-left: 20px; margin-top: 6px;">
-                <li><strong>Radio buttons:</strong> Allow only ONE selection from a group sharing the identical <code>name</code> attribute.</li>
-                <li><strong>Checkboxes:</strong> Allow ZERO, ONE, or MULTIPLE independent selections.</li>
-                <li><strong>Select dropdown:</strong> Dropdown menu with <code>&lt;option&gt;</code> and optional <code>&lt;optgroup&gt;</code>.</li>
-                <li><strong>Datalist:</strong> Input field with autocomplete suggestions via <code>&lt;datalist&gt;</code>.</li>
-            </ul>
-        </div>
-
-        <form action="#" method="GET" onsubmit="event.preventDefault(); showFeedback('selection-result', this);">
-            <!-- Radio Buttons (Single Choice) -->
-            <div class="form-group">
-                <label>Experience Level (Choose one - Radio):</label>
-                <div class="options-group">
-                    <label class="option-label">
-                        <input type="radio" name="experience" value="beginner" checked>
-                        Beginner (Just started learning HTML)
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="experience" value="intermediate">
-                        Intermediate (Comfortable with HTML & CSS)
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="experience" value="advanced">
-                        Advanced (Full-stack or Frontend Developer)
-                    </label>
-                </div>
-            </div>
-
-            <!-- Checkboxes (Multiple Choices) -->
-            <div class="form-group">
-                <label>Skills you want to learn (Choose any - Checkbox):</label>
-                <div class="options-group">
-                    <label class="option-label">
-                        <input type="checkbox" name="skills" value="html5" checked>
-                        HTML5 Semantic Elements & Forms
-                    </label>
-                    <label class="option-label">
-                        <input type="checkbox" name="skills" value="css3">
-                        CSS3 Flexbox, Grid & Animations
-                    </label>
-                    <label class="option-label">
-                        <input type="checkbox" name="skills" value="javascript">
-                        JavaScript & DOM Manipulation
-                    </label>
-                </div>
-            </div>
-
-            <!-- Dropdown Menu (<select>) -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="country">Country of Residence (<code>&lt;select&gt;</code>):</label>
-                    <select id="country" name="country">
-                        <option value="">-- Please choose an option --</option>
-                        <optgroup label="Asia">
-                            <option value="IN" selected>India</option>
-                            <option value="JP">Japan</option>
-                            <option value="SG">Singapore</option>
-                        </optgroup>
-                        <optgroup label="North America">
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                        </optgroup>
-                        <optgroup label="Europe">
-                            <option value="UK">United Kingdom</option>
-                            <option value="DE">Germany</option>
-                        </optgroup>
-                    </select>
-                </div>
-
-                <!-- Datalist Autocomplete (<datalist>) -->
-                <div class="form-group">
-                    <label for="browser-choice">Preferred Browser (<code>&lt;datalist&gt;</code>):</label>
-                    <input list="browsers" id="browser-choice" name="preferred_browser" placeholder="Type or pick a browser...">
-                    <datalist id="browsers">
-                        <option value="Google Chrome">
-                        <option value="Mozilla Firefox">
-                        <option value="Microsoft Edge">
-                        <option value="Apple Safari">
-                        <option value="Brave">
-                        <option value="Opera">
-                    </datalist>
-                    <span class="helper-text">Provides interactive autocomplete recommendations.</span>
-                </div>
-            </div>
-
-            <div class="button-group">
-                <button type="submit">Submit Selections</button>
-                <button type="reset">Reset</button>
-            </div>
-
-            <div id="selection-result" class="result-box"></div>
-        </form>
-    </section>
-
-    <!-- SECTION 4: Special Input Controls -->
-    <section id="special-inputs" class="section-card">
-        <h2>4. Date, Time, Color, Range & Multi-line Text</h2>
-        <div class="explanation">
-            Modern HTML5 includes native picker widgets for dates, times, colors, ranges, and file attachments without needing third-party libraries.
-        </div>
-
-        <form action="#" method="GET" onsubmit="event.preventDefault(); showFeedback('special-result', this);">
-            <div class="form-row">
-                <!-- Date Picker -->
-                <div class="form-group">
-                    <label for="event-date">Date Picker (<code>type="date"</code>):</label>
-                    <input type="date" id="event-date" name="event_date">
-                </div>
-
-                <!-- Time Picker -->
-                <div class="form-group">
-                    <label for="event-time">Time Picker (<code>type="time"</code>):</label>
-                    <input type="time" id="event-time" name="event_time">
-                </div>
-
-                <!-- Color Picker -->
-                <div class="form-group">
-                    <label for="theme-color">Favorite Color (<code>type="color"</code>):</label>
-                    <input type="color" id="theme-color" name="theme_color" value="#2563eb">
-                </div>
-            </div>
-
-            <!-- Range Slider -->
-            <div class="form-group">
-                <label for="satisfaction">Satisfaction Rating (<code>type="range"</code>): <span id="range-val" style="color: #2563eb; font-weight: bold;">80</span>%</label>
-                <input type="range" id="satisfaction" name="satisfaction" min="0" max="100" value="80" oninput="document.getElementById('range-val').innerText = this.value;">
-            </div>
-
-            <!-- File Upload -->
-            <div class="form-group">
-                <label for="resume-upload">Upload Document or Avatar (<code>type="file"</code>):</label>
-                <input type="file" id="resume-upload" name="user_file" accept=".pdf,image/*">
-                <span class="helper-text">Accepts PDF documents and image files.</span>
-            </div>
-
-            <!-- Multi-line Textarea -->
-            <div class="form-group">
-                <label for="user-bio">About Yourself (<code>&lt;textarea&gt;</code>):</label>
-                <textarea id="user-bio" name="user_bio" rows="4" placeholder="Write a short summary about your goals and interests..."></textarea>
-            </div>
-
-            <div class="button-group">
-                <button type="submit">Submit Details</button>
-                <button type="reset">Reset</button>
-            </div>
-
-            <div id="special-result" class="result-box"></div>
-        </form>
-    </section>
-
-    <!-- SECTION 5: Fieldset and Legend -->
-    <section id="fieldset-section" class="section-card">
-        <h2>5. Grouping Form Elements (<code>&lt;fieldset&gt;</code> & <code>&lt;legend&gt;</code>)</h2>
-        <div class="explanation">
-            Use <code>&lt;fieldset&gt;</code> to logically group related fields together, and <code>&lt;legend&gt;</code> to provide a clear caption for the group. This helps users navigate long forms.
-        </div>
-
-        <form action="#" method="GET" onsubmit="event.preventDefault(); showFeedback('fieldset-result', this);">
-            <!-- Personal Info Fieldset -->
-            <fieldset>
-                <legend>👤 Personal Information</legend>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" name="first_name" placeholder="John" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" name="last_name" placeholder="Doe" required>
-                    </div>
-                </div>
-            </fieldset>
-
-            <!-- Contact Preferences Fieldset -->
-            <fieldset>
-                <legend>📬 Communication Preferences</legend>
-                <div class="options-group">
-                    <label class="option-label">
-                        <input type="checkbox" name="notify_email" checked>
-                        Receive email newsletters
-                    </label>
-                    <label class="option-label">
-                        <input type="checkbox" name="notify_sms">
-                        Receive SMS notifications
-                    </label>
-                </div>
-            </fieldset>
-
-            <div class="button-group">
-                <button type="submit">Save Group Data</button>
-                <button type="reset">Reset Group</button>
-            </div>
-
-            <div id="fieldset-result" class="result-box"></div>
-        </form>
-    </section>
-
-    <!-- SECTION 6: Complete Registration Form Demo -->
-    <section id="interactive-demo" class="section-card">
-        <h2>6. Complete Interactive Student Registration Form</h2>
-        <div class="explanation">
-            This comprehensive form combines everything covered in Day 7: input validation, grouped fields, selection dropdowns, checkboxes, radios, and action buttons.
-        </div>
-
-        <form id="student-form" action="#" method="POST" onsubmit="event.preventDefault(); showFeedback('registration-result', this);">
-            <!-- Account Section -->
-            <fieldset>
-                <legend>🔐 Account Details</legend>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="reg-name">Full Name: <span style="color: #ef4444;">*</span></label>
-                        <input type="text" id="reg-name" name="full_name" placeholder="Harish Kumar" required minlength="3">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-email">Email Address: <span style="color: #ef4444;">*</span></label>
-                        <input type="email" id="reg-email" name="email" placeholder="harish@example.com" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="reg-password">Password: <span style="color: #ef4444;">*</span></label>
-                        <input type="password" id="reg-password" name="password" placeholder="At least 8 characters" required minlength="8">
-                    </div>
-                    <div class="form-group">
-                        <label for="reg-role">Track / Course: <span style="color: #ef4444;">*</span></label>
-                        <select id="reg-role" name="track" required>
-                            <option value="">-- Select Course --</option>
-                            <option value="frontend" selected>Frontend Web Development</option>
-                            <option value="backend">Backend Development</option>
-                            <option value="fullstack">Full-Stack Development</option>
-                            <option value="uiux">UI/UX Design</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
-
-            <!-- Preferences -->
-            <fieldset>
-                <legend>⚙️ Learning Preferences</legend>
-                <div class="form-group">
-                    <label>Preferred Study Mode:</label>
-                    <div class="options-group">
-                        <label class="option-label">
-                            <input type="radio" name="study_mode" value="self-paced" checked>
-                            Self-paced learning (videos & exercises)
-                        </label>
-                        <label class="option-label">
-                            <input type="radio" name="study_mode" value="live-cohort">
-                            Live cohort sessions
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group" style="margin-top: 10px;">
-                    <label for="comments">Additional Notes / Questions:</label>
-                    <textarea id="comments" name="comments" rows="3" placeholder="Any specific topics you want help with?"></textarea>
-                </div>
-
-                <!-- Terms and Conditions Checkbox -->
-                <div class="form-group" style="margin-top: 12px;">
-                    <label class="option-label">
-                        <input type="checkbox" name="agree_terms" required>
-                        I agree to the <a href="https://github.com/harish-0987/DAY-7-OF-FRONTEND" target="_blank" style="color: #2563eb; text-decoration: underline; margin-left: 4px;">Terms and Conditions</a> <span style="color: #ef4444;">*</span>
-                    </label>
-                </div>
-            </fieldset>
-
-            <!-- Action Buttons -->
-            <div class="button-group">
-                <button type="submit">Submit Registration</button>
-                <button type="reset">Reset Form</button>
-                <button type="button" onclick="alert('This is a custom button triggering a JavaScript action!');">Custom Action</button>
-            </div>
-
-            <div id="registration-result" class="result-box"></div>
-        </form>
-    </section>
-
-    <!-- Footer -->
+    <!-- Semantic Footer: Author info and copyright -->
     <footer>
-        <p><strong>Day 7: HTML Forms</strong> | 30 Days of Frontend Challenge</p>
-        <p>Repository: <a href="https://github.com/harish-0987/DAY-7-OF-FRONTEND" target="_blank" style="color: #2563eb; text-decoration: none;">github.com/harish-0987/DAY-7-OF-FRONTEND</a></p>
+        <span class="tag-badge">&lt;footer&gt;</span>
+        <p>&copy; 2026 Day 8 of Frontend Development &bull; Built with Semantic HTML</p>
     </footer>
 
-    <!-- Interactive Demonstration Script for Students -->
-    <script>
-        function showFeedback(resultBoxId, formElement) {
-            const resultBox = document.getElementById(resultBoxId);
-            const formData = new FormData(formElement);
-            const dataObj = {};
-
-            formData.forEach((value, key) => {
-                if (dataObj[key]) {
-                    if (Array.isArray(dataObj[key])) {
-                        dataObj[key].push(value);
-                    } else {
-                        dataObj[key] = [dataObj[key], value];
-                    }
-                } else {
-                    dataObj[key] = value;
-                }
-            });
-
-            resultBox.style.display = 'block';
-            resultBox.innerHTML = `
-                <strong>✅ Form Data Captured Successfully!</strong>
-                <p style="margin: 4px 0 0; font-size: 13px;">Below is the serialized data that would be transmitted to the server:</p>
-                <pre>${JSON.stringify(dataObj, null, 2)}</pre>
-            `;
-            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-    </script>
 </body>
 </html>
