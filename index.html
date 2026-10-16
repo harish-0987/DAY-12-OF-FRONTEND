@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 8 - Semantic HTML</title>
+    <title>Day 9 - HTML Lists</title>
     <style>
         * {
             box-sizing: border-box;
@@ -14,123 +14,304 @@
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            max-width: 760px;
+            max-width: 800px;
             margin: 32px auto;
             padding: 0 16px;
             background-color: #f8fafc;
             color: #1e293b;
         }
 
-        header, nav, main, section, article, aside, footer {
-            padding: 20px;
-            margin-bottom: 16px;
-            border-radius: 8px;
+        header, section, footer {
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 10px;
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
 
         header {
-            background-color: #eff6ff;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             border-color: #bfdbfe;
         }
 
-        nav {
-            background-color: #f0fdf4;
-            border-color: #bbf7d0;
+        .tag-badge {
+            display: inline-block;
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
         }
 
-        nav a {
-            margin-right: 18px;
-            color: #15803d;
+        h1 {
+            font-size: 1.85rem;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p {
+            color: #475569;
+            margin-bottom: 14px;
+        }
+
+        .card-demo {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-top: 12px;
+        }
+
+        /* Unordered List styles */
+        ul {
+            padding-left: 24px;
+            color: #334155;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+        }
+
+        /* Ordered List styles */
+        ol {
+            padding-left: 24px;
+            color: #334155;
+        }
+
+        ol li {
+            margin-bottom: 6px;
+        }
+
+        /* Description List styles */
+        dl {
+            padding: 8px 0;
+        }
+
+        dt {
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 10px;
+            font-size: 1.05rem;
+        }
+
+        dd {
+            margin-left: 20px;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        /* Custom list styling variants */
+        .list-square {
+            list-style-type: square;
+        }
+
+        .list-circle {
+            list-style-type: circle;
+        }
+
+        .sub-list {
+            margin-top: 6px;
+            padding-left: 20px;
+        }
+
+        code {
+            background-color: #e2e8f0;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            font-family: Consolas, monospace;
+        }
+
+        /* Example Navigation Bar using Lists */
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-list li a {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
             text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
         }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        article {
-            background-color: #faf5ff;
-            border-color: #e9d5ff;
-        }
-
-        aside {
-            background-color: #fffbeb;
-            border-color: #fde68a;
-            font-size: 0.92rem;
+        .nav-list li a:hover {
+            background: #1d4ed8;
         }
 
         footer {
             background-color: #f1f5f9;
             text-align: center;
             color: #64748b;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
         }
-
-        .tag-badge {
-            display: inline-block;
-            font-family: Consolas, monospace;
-            font-size: 0.75rem;
-            font-weight: bold;
-            background-color: #0f172a;
-            color: #38bdf8;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-        }
-
-        h1 { font-size: 1.75rem; color: #0f172a; margin-bottom: 4px; }
-        h2 { font-size: 1.3rem; color: #334155; margin-bottom: 6px; }
-        h3 { font-size: 1.1rem; color: #92400e; margin-bottom: 4px; }
-        p { color: #475569; margin-bottom: 8px; }
-        time { color: #7c3aed; font-weight: 500; }
     </style>
 </head>
 <body>
 
-    <!-- Semantic Header: Introduces the page -->
+    <!-- Header Section -->
     <header>
-        <span class="tag-badge">&lt;header&gt;</span>
-        <h1>Day 8: Semantic HTML</h1>
-        <p>Using meaningful HTML5 tags to structure a webpage clearly.</p>
+        <span class="tag-badge">Day 9 &bull; HTML Lists</span>
+        <h1>HTML Lists Masterclass</h1>
+        <p>Learn how to structure items, steps, definitions, and navigation menus using HTML lists.</p>
     </header>
 
-    <!-- Semantic Nav: Navigation links -->
-    <nav>
-        <span class="tag-badge">&lt;nav&gt;</span>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#articles">Articles</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <!-- 1. Unordered List -->
+    <section id="unordered-list">
+        <span class="tag-badge">&lt;ul&gt; &amp; &lt;li&gt;</span>
+        <h2>1. Unordered List (Bullet Points)</h2>
+        <p>Used when the order of the items does not matter. Each item is wrapped inside an <code>&lt;li&gt;</code> (list item) tag.</p>
 
-    <!-- Semantic Main: Primary document content -->
-    <main>
-        <span class="tag-badge">&lt;main&gt;</span>
+        <div class="card-demo">
+            <h3>Standard Disc Bullets:</h3>
+            <ul>
+                <li>HTML5 Structure</li>
+                <li>CSS3 Styling</li>
+                <li>JavaScript Interactivity</li>
+                <li>Git &amp; GitHub Version Control</li>
+            </ul>
 
-        <!-- Semantic Article: Independent, self-contained content -->
-        <article id="articles">
-            <span class="tag-badge">&lt;article&gt;</span>
-            <h2>Why Use Semantic Elements?</h2>
-            <p>Published: <time datetime="2026-10-15">October 15, 2026</time></p>
-            <p>Semantic tags like <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;nav&gt;</code> replace generic <code>&lt;div&gt;</code> tags. They make your code cleaner, improve accessibility for screen readers, and boost search engine ranking (SEO).</p>
-        </article>
+            <h3 style="margin-top: 14px;">Custom Style: Circle &amp; Square Bullets:</h3>
+            <ul class="list-square">
+                <li>Square Bullet 1: Responsive Design</li>
+                <li>Square Bullet 2: Web Accessibility (a11y)</li>
+            </ul>
+        </div>
+    </section>
 
-        <!-- Semantic Aside: Related, secondary content -->
-        <aside>
-            <span class="tag-badge">&lt;aside&gt;</span>
-            <h3>Quick Tip</h3>
-            <p>A document should have only one <code>&lt;main&gt;</code> element that directly contains the unique content of the page.</p>
-        </aside>
-    </main>
+    <!-- 2. Ordered List -->
+    <section id="ordered-list">
+        <span class="tag-badge">&lt;ol&gt; &amp; &lt;li&gt;</span>
+        <h2>2. Ordered List (Numbered Sequences)</h2>
+        <p>Used when item sequence or ranking matters (e.g., steps, recipes, rankings). Supports attributes like <code>type</code>, <code>start</code>, and <code>reversed</code>.</p>
 
-    <!-- Semantic Footer: Author info and copyright -->
+        <div class="card-demo">
+            <h3>Standard Numbers (Default 1, 2, 3...):</h3>
+            <ol>
+                <li>Plan website wireframe</li>
+                <li>Write semantic HTML markup</li>
+                <li>Style with modern CSS</li>
+                <li>Deploy to GitHub</li>
+            </ol>
+
+            <h3 style="margin-top: 14px;">Roman Numerals with <code>type="I"</code> &amp; <code>start="5"</code>:</h3>
+            <ol type="I" start="5">
+                <li>Fifth Major Phase</li>
+                <li>Sixth Major Phase</li>
+                <li>Seventh Major Phase</li>
+            </ol>
+
+            <h3 style="margin-top: 14px;">Reversed Countdown with <code>reversed</code>:</h3>
+            <ol reversed>
+                <li>Launch website to production</li>
+                <li>Run end-to-end testing</li>
+                <li>Review pull request code</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- 3. Description List -->
+    <section id="description-list">
+        <span class="tag-badge">&lt;dl&gt;, &lt;dt&gt; &amp; &lt;dd&gt;</span>
+        <h2>3. Description / Definition List</h2>
+        <p>Used for terms and descriptions, metadata pairs, or glossaries. Uses <code>&lt;dl&gt;</code> (description list), <code>&lt;dt&gt;</code> (term), and <code>&lt;dd&gt;</code> (definition/description).</p>
+
+        <div class="card-demo">
+            <dl>
+                <dt>&lt;ul&gt;</dt>
+                <dd>Unordered List element used for bulleted lists.</dd>
+
+                <dt>&lt;ol&gt;</dt>
+                <dd>Ordered List element used for sequentially numbered lists.</dd>
+
+                <dt>&lt;li&gt;</dt>
+                <dd>List Item element placed inside unordered or ordered lists.</dd>
+
+                <dt>&lt;dl&gt;</dt>
+                <dd>Description List element used to enclose term-description pairs.</dd>
+            </dl>
+        </div>
+    </section>
+
+    <!-- 4. Nested Lists -->
+    <section id="nested-lists">
+        <span class="tag-badge">Nested Lists</span>
+        <h2>4. Nested Lists (Multi-Level)</h2>
+        <p>You can nest a list inside an <code>&lt;li&gt;</code> tag of another list to create outlines, table of contents, and hierarchical structures.</p>
+
+        <div class="card-demo">
+            <ol>
+                <li>Frontend Roadmap
+                    <ul class="sub-list">
+                        <li>HTML5
+                            <ul class="sub-list list-circle">
+                                <li>Semantic Elements</li>
+                                <li>Lists and Tables</li>
+                                <li>Forms and Validation</li>
+                            </ul>
+                        </li>
+                        <li>CSS3
+                            <ul class="sub-list list-circle">
+                                <li>Flexbox Layout</li>
+                                <li>CSS Grid</li>
+                                <li>Responsive Design</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Backend Roadmap
+                    <ul class="sub-list">
+                        <li>Node.js &amp; Express</li>
+                        <li>Database &amp; APIs</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- 5. Practical Real-World Example: Navigation Menu -->
+    <section id="real-world">
+        <span class="tag-badge">Real-World Application</span>
+        <h2>5. Practical Example: Navigation Bar with &lt;ul&gt;</h2>
+        <p>Most modern navigation bars are built on top of an unordered list with CSS styling.</p>
+
+        <div class="card-demo">
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#unordered-list">Unordered</a></li>
+                    <li><a href="#ordered-list">Ordered</a></li>
+                    <li><a href="#description-list">Description</a></li>
+                    <li><a href="#nested-lists">Nested</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <span class="tag-badge">&lt;footer&gt;</span>
-        <p>&copy; 2026 Day 8 of Frontend Development &bull; Built with Semantic HTML</p>
+        <p>&copy; 2026 Day 9 of Frontend Development &bull; HTML Lists</p>
     </footer>
 
 </body>

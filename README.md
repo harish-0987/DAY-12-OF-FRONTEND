@@ -1,72 +1,93 @@
-# 🌐 Day 8 of Frontend: Semantic HTML
+# 📋 Day 9 of Frontend: HTML Lists
 
-Welcome to **Day 8 of Frontend Development**! Today's lesson focuses on **Semantic HTML** — using HTML elements that clearly describe their meaning to both the browser and developer.
+Welcome to **Day 9 of Frontend Development**! Today's lesson focuses on **HTML Lists** — learning how to structure items, numbered sequences, terminology dictionaries, and nested navigation structures.
 
-Repository: [harish-0987/DAY-8-OF-FRONTEND](https://github.com/harish-0987/DAY-8-OF-FRONTEND)
-
----
-
-## 📌 What is Semantic HTML?
-
-In HTML, semantic tags convey the meaning of the content enclosed within them, replacing non-semantic elements like generic `<div>` and `<span>`.
-
-### Benefits:
-- **Accessibility (a11y)**: Screen readers navigate content much more effectively.
-- **Search Engine Optimization (SEO)**: Search engines understand page structure and rank it higher.
-- **Code Readability**: Easier for developers to maintain and understand the layout.
+Repository: [harish-0987/DAY-9-OF-FRONTEND](https://github.com/harish-0987/DAY-9-OF-FRONTEND)
 
 ---
 
-## 🏷️ Key Semantic Elements
+## 📌 Types of HTML Lists
 
-| Element | Purpose | Example Usage |
+HTML provides three primary list types to organize content:
+
+| List Type | HTML Tag | Description | Typical Use Case |
+|---|---|---|---|
+| **Unordered List** | `<ul>` | Bulleted list where order does not matter | Features list, shopping list, navigation bar |
+| **Ordered List** | `<ol>` | Sequenced list with numbers or letters | Step-by-step instructions, rankings, recipes |
+| **Description List** | `<dl>` | Pairs of terms (`<dt>`) and descriptions (`<dd>`) | Glossaries, FAQs, key-value metadata |
+
+---
+
+## 🏷️ Key Elements & Attributes
+
+### 1. Common List Tags
+- `<ul>`: Defines an unordered list.
+- `<ol>`: Defines an ordered list.
+- `<li>`: Defines a list item (used inside `<ul>` and `<ol>`).
+- `<dl>`: Defines a description list.
+- `<dt>`: Defines a term/name in a description list.
+- `<dd>`: Describes each term in a description list.
+
+### 2. Ordered List Attributes
+
+| Attribute | Values | Description |
 |---|---|---|
-| `<header>` | Introductory content or website header | Site title, logo, top banner |
-| `<nav>` | Set of primary navigation links | Menus, table of contents |
-| `<main>` | Central, dominant content of the document | Unique page content (use once per page) |
-| `<article>` | Independent, self-contained composition | Blog posts, news items, product cards |
-| `<section>` | Thematic grouping of related content | Feature sections, chapters |
-| `<aside>` | Indirectly related/supplementary content | Sidebars, quotes, callout boxes |
-| `<footer>` | Footer for a document or section | Copyright, author info, policy links |
-| `<time>` | Represents dates or times in machine-readable format | Publication date (`datetime="YYYY-MM-DD"`) |
+| `type="1"` | `1` (default) | Numbers (1, 2, 3...) |
+| `type="a"` / `type="A"` | `a` or `A` | Lowercase or Uppercase letters (a, b, c... / A, B, C...) |
+| `type="i"` / `type="I"` | `i` or `I` | Lowercase or Uppercase Roman numerals (i, ii, iii... / I, II, III...) |
+| `start="number"` | Any integer (e.g., `start="5"`) | Specifies the starting number for the list |
+| `reversed` | Boolean attribute | Reverses the list numbering (e.g., 3, 2, 1) |
 
 ---
 
-## 💻 Basic Code Example
+## 💻 Basic Code Examples
 
+### 1. Unordered List (`<ul>`)
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Semantic HTML</title>
-</head>
-<body>
-    <header>
-        <h1>Website Title</h1>
-    </header>
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+```
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-    </nav>
+### 2. Ordered List (`<ol>`)
+```html
+<ol type="1" start="1">
+    <li>Learn HTML structure</li>
+    <li>Style with CSS</li>
+    <li>Add interactivity with JavaScript</li>
+</ol>
+```
 
-    <main>
-        <article>
-            <h2>Article Title</h2>
-            <p>Content goes here...</p>
-        </article>
+### 3. Description List (`<dl>`)
+```html
+<dl>
+    <dt>HTML</dt>
+    <dd>HyperText Markup Language - defines the structure of web pages.</dd>
 
-        <aside>
-            <p>Related sidebar information.</p>
-        </aside>
-    </main>
+    <dt>CSS</dt>
+    <dd>Cascading Style Sheets - styles the appearance of web pages.</dd>
+</dl>
+```
 
-    <footer>
-        <p>&copy; 2026 Semantic HTML</p>
-    </footer>
-</body>
-</html>
+### 4. Nested List Example
+```html
+<ol>
+    <li>Frontend
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </li>
+    <li>Backend
+        <ul>
+            <li>Node.js</li>
+            <li>Python</li>
+        </ul>
+    </li>
+</ol>
 ```
 
 ---
@@ -74,9 +95,9 @@ In HTML, semantic tags convey the meaning of the content enclosed within them, r
 ## 🚀 How to Run & Push to GitHub
 
 1. Open [index.html](file:///c:/Users/pedda/OneDrive/Desktop/HTML/index.html) in your browser.
-2. Push your changes to Day 8:
+2. Push your changes to Day 9:
    ```bash
    git add .
-   git commit -m "Day 8: Semantic HTML basic implementation"
-   git push -u day8 main
+   git commit -m "Day 9: HTML Lists basic implementation"
+   git push -u day9 main
    ```
