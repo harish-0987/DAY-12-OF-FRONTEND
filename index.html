@@ -3,315 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 9 - HTML Lists</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 32px auto;
-            padding: 0 16px;
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-
-        header, section, footer {
-            padding: 24px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        }
-
-        header {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-color: #bfdbfe;
-        }
-
-        .tag-badge {
-            display: inline-block;
-            font-family: Consolas, 'Courier New', monospace;
-            font-size: 0.78rem;
-            font-weight: 700;
-            background-color: #0f172a;
-            color: #38bdf8;
-            padding: 3px 10px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 1.85rem;
-            color: #0f172a;
-            margin-bottom: 6px;
-        }
-
-        h2 {
-            font-size: 1.35rem;
-            color: #1e293b;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        p {
-            color: #475569;
-            margin-bottom: 14px;
-        }
-
-        .card-demo {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 18px 22px;
-            margin-top: 12px;
-        }
-
-        /* Unordered List styles */
-        ul {
-            padding-left: 24px;
-            color: #334155;
-        }
-
-        ul li {
-            margin-bottom: 6px;
-        }
-
-        /* Ordered List styles */
-        ol {
-            padding-left: 24px;
-            color: #334155;
-        }
-
-        ol li {
-            margin-bottom: 6px;
-        }
-
-        /* Description List styles */
-        dl {
-            padding: 8px 0;
-        }
-
-        dt {
-            font-weight: 700;
-            color: #0f172a;
-            margin-top: 10px;
-            font-size: 1.05rem;
-        }
-
-        dd {
-            margin-left: 20px;
-            color: #475569;
-            margin-bottom: 8px;
-        }
-
-        /* Custom list styling variants */
-        .list-square {
-            list-style-type: square;
-        }
-
-        .list-circle {
-            list-style-type: circle;
-        }
-
-        .sub-list {
-            margin-top: 6px;
-            padding-left: 20px;
-        }
-
-        code {
-            background-color: #e2e8f0;
-            color: #0f172a;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.88rem;
-            font-family: Consolas, monospace;
-        }
-
-        /* Example Navigation Bar using Lists */
-        .nav-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .nav-list li a {
-            display: inline-block;
-            background: #2563eb;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.2s ease;
-        }
-
-        .nav-list li a:hover {
-            background: #1d4ed8;
-        }
-
-        footer {
-            background-color: #f1f5f9;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-    </style>
+    <meta name="description" content="Day 10 Frontend Mini Project: Complete Personal Portfolio & Resume built using pure HTML without CSS.">
+    <title>Harish | Personal Portfolio & Resume (Pure HTML Mini Project)</title>
 </head>
 <body>
 
     <!-- Header Section -->
-    <header>
-        <span class="tag-badge">Day 9 &bull; HTML Lists</span>
-        <h1>HTML Lists Masterclass</h1>
-        <p>Learn how to structure items, steps, definitions, and navigation menus using HTML lists.</p>
+    <header id="top">
+        <h1>Harish | Aspiring Frontend Developer</h1>
+        <p><em>Welcome to my official portfolio and resume website, crafted entirely with <strong>Pure HTML5</strong> (No CSS).</em></p>
+        
+        <!-- Navigation Menu -->
+        <nav>
+            <p>
+                <strong>Quick Navigation:</strong>
+                <a href="#about">About Me</a> | 
+                <a href="#skills">Skills</a> | 
+                <a href="#projects">Projects</a> | 
+                <a href="#education">Education</a> | 
+                <a href="#process">Development Process</a> | 
+                <a href="#faq">FAQ</a> | 
+                <a href="#contact">Contact Me</a>
+            </p>
+        </nav>
     </header>
 
-    <!-- 1. Unordered List -->
-    <section id="unordered-list">
-        <span class="tag-badge">&lt;ul&gt; &amp; &lt;li&gt;</span>
-        <h2>1. Unordered List (Bullet Points)</h2>
-        <p>Used when the order of the items does not matter. Each item is wrapped inside an <code>&lt;li&gt;</code> (list item) tag.</p>
+    <hr>
 
-        <div class="card-demo">
-            <h3>Standard Disc Bullets:</h3>
-            <ul>
-                <li>HTML5 Structure</li>
-                <li>CSS3 Styling</li>
-                <li>JavaScript Interactivity</li>
-                <li>Git &amp; GitHub Version Control</li>
-            </ul>
+    <!-- Main Content Area -->
+    <main>
 
-            <h3 style="margin-top: 14px;">Custom Style: Circle &amp; Square Bullets:</h3>
-            <ul class="list-square">
-                <li>Square Bullet 1: Responsive Design</li>
-                <li>Square Bullet 2: Web Accessibility (a11y)</li>
-            </ul>
-        </div>
-    </section>
+        <!-- 1. About Me Section -->
+        <section id="about">
+            <h2>1. About Me</h2>
+            <figure>
+                <img src="avatar.jpg" alt="Profile Picture of Harish" width="160" height="160">
+                <figcaption><small><em>Figure 1: Harish - Developer & Learner</em></small></figcaption>
+            </figure>
 
-    <!-- 2. Ordered List -->
-    <section id="ordered-list">
-        <span class="tag-badge">&lt;ol&gt; &amp; &lt;li&gt;</span>
-        <h2>2. Ordered List (Numbered Sequences)</h2>
-        <p>Used when item sequence or ranking matters (e.g., steps, recipes, rankings). Supports attributes like <code>type</code>, <code>start</code>, and <code>reversed</code>.</p>
+            <p>
+                Hello! My name is <strong>Harish</strong>. I am a passionate tech enthusiast currently embarking on a 
+                journey to master frontend web development. This website represents 
+                <mark>Day 10 of my Frontend Development Challenge</mark>, focusing on creating a complete, 
+                accessible, and well-structured mini-project using <strong>only HTML</strong>.
+            </p>
 
-        <div class="card-demo">
-            <h3>Standard Numbers (Default 1, 2, 3...):</h3>
-            <ol>
-                <li>Plan website wireframe</li>
-                <li>Write semantic HTML markup</li>
-                <li>Style with modern CSS</li>
-                <li>Deploy to GitHub</li>
-            </ol>
+            <p>
+                My objective is to build clean, semantic, and user-friendly web interfaces from the ground up, 
+                mastering standard web fundamentals before moving into advanced styling and interactive frameworks.
+            </p>
 
-            <h3 style="margin-top: 14px;">Roman Numerals with <code>type="I"</code> &amp; <code>start="5"</code>:</h3>
-            <ol type="I" start="5">
-                <li>Fifth Major Phase</li>
-                <li>Sixth Major Phase</li>
-                <li>Seventh Major Phase</li>
-            </ol>
-
-            <h3 style="margin-top: 14px;">Reversed Countdown with <code>reversed</code>:</h3>
-            <ol reversed>
-                <li>Launch website to production</li>
-                <li>Run end-to-end testing</li>
-                <li>Review pull request code</li>
-            </ol>
-        </div>
-    </section>
-
-    <!-- 3. Description List -->
-    <section id="description-list">
-        <span class="tag-badge">&lt;dl&gt;, &lt;dt&gt; &amp; &lt;dd&gt;</span>
-        <h2>3. Description / Definition List</h2>
-        <p>Used for terms and descriptions, metadata pairs, or glossaries. Uses <code>&lt;dl&gt;</code> (description list), <code>&lt;dt&gt;</code> (term), and <code>&lt;dd&gt;</code> (definition/description).</p>
-
-        <div class="card-demo">
+            <h3>Personal Quick Facts</h3>
             <dl>
-                <dt>&lt;ul&gt;</dt>
-                <dd>Unordered List element used for bulleted lists.</dd>
+                <dt><strong>Location:</strong></dt>
+                <dd>Telangana, India</dd>
 
-                <dt>&lt;ol&gt;</dt>
-                <dd>Ordered List element used for sequentially numbered lists.</dd>
+                <dt><strong>Current Goal:</strong></dt>
+                <dd>Mastering HTML5, CSS3, JavaScript, and Modern Web Standards</dd>
 
-                <dt>&lt;li&gt;</dt>
-                <dd>List Item element placed inside unordered or ordered lists.</dd>
+                <dt><strong>Hobbies &amp; Interests:</strong></dt>
+                <dd>Coding, Problem Solving, Reading Tech Blogs, and Playing Cricket</dd>
 
-                <dt>&lt;dl&gt;</dt>
-                <dd>Description List element used to enclose term-description pairs.</dd>
+                <dt><strong>GitHub Profile:</strong></dt>
+                <dd><a href="https://github.com/harish-0987" target="_blank">github.com/harish-0987</a></dd>
             </dl>
-        </div>
-    </section>
+        </section>
 
-    <!-- 4. Nested Lists -->
-    <section id="nested-lists">
-        <span class="tag-badge">Nested Lists</span>
-        <h2>4. Nested Lists (Multi-Level)</h2>
-        <p>You can nest a list inside an <code>&lt;li&gt;</code> tag of another list to create outlines, table of contents, and hierarchical structures.</p>
+        <hr>
 
-        <div class="card-demo">
-            <ol>
-                <li>Frontend Roadmap
-                    <ul class="sub-list">
-                        <li>HTML5
-                            <ul class="sub-list list-circle">
-                                <li>Semantic Elements</li>
-                                <li>Lists and Tables</li>
-                                <li>Forms and Validation</li>
-                            </ul>
-                        </li>
-                        <li>CSS3
-                            <ul class="sub-list list-circle">
-                                <li>Flexbox Layout</li>
-                                <li>CSS Grid</li>
-                                <li>Responsive Design</li>
-                            </ul>
-                        </li>
+        <!-- 2. Technical Skills Section -->
+        <section id="skills">
+            <h2>2. Technical Skills &amp; Competencies</h2>
+
+            <h3>Core Technologies</h3>
+            <ul>
+                <li>
+                    <strong>Web Structure &amp; Markup:</strong>
+                    <ul>
+                        <li>HTML5 Semantic Elements (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>)</li>
+                        <li>HTML Lists (Ordered, Unordered, and Description Lists)</li>
+                        <li>HTML Tables with headers, body, and captions</li>
+                        <li>HTML5 Interactive Forms &amp; Input Validations</li>
+                        <li>Media Embedding (Images, Audio, Video, and Hyperlinks)</li>
                     </ul>
                 </li>
-                <li>Backend Roadmap
-                    <ul class="sub-list">
-                        <li>Node.js &amp; Express</li>
-                        <li>Database &amp; APIs</li>
+                <li>
+                    <strong>Upcoming Tech Stack (Roadmap):</strong>
+                    <ul>
+                        <li>CSS3 (Flexbox, Grid Layouts, Responsive Design, Animations)</li>
+                        <li>JavaScript (ES6+, DOM Manipulation, Async/Await, APIs)</li>
+                        <li>React.js (Component Architecture, Hooks, State Management)</li>
                     </ul>
+                </li>
+                <li>
+                    <strong>Tools &amp; Version Control:</strong>
+                    <ul>
+                        <li>Git &amp; GitHub</li>
+                        <li>Visual Studio Code</li>
+                        <li>Command Line Interface (CLI)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>HTML Terminology Glossary</h3>
+            <dl>
+                <dt><code>&lt;!DOCTYPE html&gt;</code></dt>
+                <dd>Informs the web browser that the document being rendered is written in HTML5.</dd>
+
+                <dt><code>&lt;semantic tags&gt;</code></dt>
+                <dd>Tags like <code>&lt;article&gt;</code> and <code>&lt;nav&gt;</code> that provide explicit meaning to both the browser and search engines.</dd>
+
+                <dt><code>&lt;form&gt;</code></dt>
+                <dd>An interactive container used to collect user inputs such as names, emails, and choices.</dd>
+            </dl>
+        </section>
+
+        <hr>
+
+        <!-- 3. Featured Projects Section -->
+        <section id="projects">
+            <h2>3. Featured Projects</h2>
+            <p>Here are basic mini-projects showcasing early development milestones:</p>
+
+            <!-- Project 1 -->
+            <article>
+                <h3>Project 1: Pure HTML Developer Portfolio (Current)</h3>
+                <img src="project-preview.jpg" alt="Preview of Personal Portfolio Project" width="300">
+                <p>
+                    A comprehensive personal resume and showcase website built completely with vanilla HTML5.
+                    It demonstrates structured layout hierarchy, accessible navigation links, multi-section content, 
+                    embedded media, tabular information, and interactive user input forms.
+                </p>
+                <ul>
+                    <li><strong>Key Topics:</strong> Semantic markup, Table structure, HTML forms, Anchor navigation</li>
+                    <li><strong>Status:</strong> Completed (Day 10)</li>
+                    <li><strong>Repository:</strong> <a href="https://github.com/harish-0987/DAY-10-OF-FRONTEND" target="_blank">DAY-10-OF-FRONTEND on GitHub</a></li>
+                </ul>
+            </article>
+
+            <br>
+
+            <!-- Project 2 -->
+            <article>
+                <h3>Project 2: Student Enrollment &amp; Registration Portal</h3>
+                <p>
+                    A functional HTML web form designed for collecting student registrations, course choices, 
+                    contact details, identification document uploads, and feedback.
+                </p>
+                <ul>
+                    <li><strong>Key Topics:</strong> <code>&lt;form&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>, radio buttons, checkboxes, and select dropdowns</li>
+                    <li><strong>Status:</strong> Completed (Day 7)</li>
+                    <li><strong>Repository:</strong> <a href="https://github.com/harish-0987/DAY-7-OF-FRONTEND" target="_blank">DAY-7-OF-FRONTEND on GitHub</a></li>
+                </ul>
+            </article>
+
+            <br>
+
+            <!-- Project 3 -->
+            <article>
+                <h3>Project 3: HTML Tables &amp; Data Presentation Guide</h3>
+                <p>
+                    An educational tabular presentation displaying comparison matrices, course schedules, 
+                    and pricing structures using multi-row and multi-column spanning.
+                </p>
+                <ul>
+                    <li><strong>Key Topics:</strong> <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>colspan</code>, <code>rowspan</code></li>
+                    <li><strong>Status:</strong> Completed (Day 2 &amp; Day 4)</li>
+                    <li><strong>Repository:</strong> <a href="https://github.com/harish-0987/DAY-2-OF-FRONTEND" target="_blank">DAY-2-OF-FRONTEND on GitHub</a></li>
+                </ul>
+            </article>
+        </section>
+
+        <hr>
+
+        <!-- 4. Education & Academic Background -->
+        <section id="education">
+            <h2>4. Education &amp; Academic Qualifications</h2>
+            <p>Overview of academic credentials formatted using an HTML table:</p>
+
+            <table border="1" cellpadding="8" cellspacing="0">
+                <caption><strong>Academic History &amp; Certifications</strong></caption>
+                <thead>
+                    <tr>
+                        <th>Level / Course</th>
+                        <th>Institution / College</th>
+                        <th>Board / University</th>
+                        <th>Year</th>
+                        <th>Status / Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bachelor of Technology (B.Tech)</td>
+                        <td>Engineering College</td>
+                        <td>State University</td>
+                        <td>2022 - 2026</td>
+                        <td>Pursuing</td>
+                    </tr>
+                    <tr>
+                        <td>Intermediate (10+2)</td>
+                        <td>Junior College</td>
+                        <td>Board of Intermediate Education</td>
+                        <td>2020 - 2022</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary School (SSC - 10th)</td>
+                        <td>High School</td>
+                        <td>State Board of Secondary Education</td>
+                        <td>2019 - 2020</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- 5. Step-by-Step Development Process -->
+        <section id="process">
+            <h2>5. My Web Development Process</h2>
+            <p>Steps followed when developing a basic web page from scratch:</p>
+
+            <ol type="1">
+                <li>
+                    <strong>Requirement Analysis:</strong> 
+                    Identify the purpose of the website and list the required content sections.
+                </li>
+                <li>
+                    <strong>Semantic Wireframing:</strong> 
+                    Map sections to semantic elements (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>).
+                </li>
+                <li>
+                    <strong>Content Markup:</strong> 
+                    Write pure HTML using appropriate headings (<code>h1</code> through <code>h6</code>), paragraphs, lists, and tables.
+                </li>
+                <li>
+                    <strong>Interactive Forms &amp; Inputs:</strong> 
+                    Add form controls with accessible labels, placeholder text, and validation constraints.
+                </li>
+                <li>
+                    <strong>Validation &amp; Testing:</strong> 
+                    Check links, inspect image rendering, and test in modern web browsers.
+                </li>
+                <li>
+                    <strong>Version Control &amp; Deployment:</strong> 
+                    Commit changes to Git and push to GitHub repositories.
                 </li>
             </ol>
-        </div>
-    </section>
+        </section>
 
-    <!-- 5. Practical Real-World Example: Navigation Menu -->
-    <section id="real-world">
-        <span class="tag-badge">Real-World Application</span>
-        <h2>5. Practical Example: Navigation Bar with &lt;ul&gt;</h2>
-        <p>Most modern navigation bars are built on top of an unordered list with CSS styling.</p>
+        <hr>
 
-        <div class="card-demo">
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#unordered-list">Unordered</a></li>
-                    <li><a href="#ordered-list">Ordered</a></li>
-                    <li><a href="#description-list">Description</a></li>
-                    <li><a href="#nested-lists">Nested</a></li>
-                </ul>
-            </nav>
-        </div>
-    </section>
+        <!-- 6. Interactive FAQ Section using HTML5 Details/Summary -->
+        <section id="faq">
+            <h2>6. Frequently Asked Questions (FAQ)</h2>
+            <p>Click on each question below to toggle the answer (Pure HTML feature):</p>
 
-    <!-- Footer -->
+            <details>
+                <summary><strong>Why is this project built with ONLY HTML and NO CSS?</strong></summary>
+                <p>
+                    Building an HTML-only project reinforces fundamental web architecture. It ensures you fully 
+                    understand semantic tags, document hierarchy, forms, lists, and accessibility before adding visual 
+                    styles with CSS.
+                </p>
+            </details>
+
+            <br>
+
+            <details>
+                <summary><strong>What are semantic HTML tags and why do we use them?</strong></summary>
+                <p>
+                    Semantic tags clearly describe their meaning to both the browser and developer. 
+                    Tags like <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;nav&gt;</code> 
+                    improve search engine optimization (SEO), screen reader accessibility, and code readability.
+                </p>
+            </details>
+
+            <br>
+
+            <details>
+                <summary><strong>What is the next step after Day 10?</strong></summary>
+                <p>
+                    From Day 11 onwards, styling with CSS (Cascading Style Sheets) will be introduced to transform 
+                    plain HTML documents into visually appealing, modern, and responsive web layouts.
+                </p>
+            </details>
+        </section>
+
+        <hr>
+
+        <!-- 7. Contact Me Form -->
+        <section id="contact">
+            <h2>7. Contact Me</h2>
+            <p>Have an inquiry, project idea, or suggestion? Please fill out the form below:</p>
+
+            <form action="#" method="post">
+                <!-- Fieldset 1: Personal Information -->
+                <fieldset>
+                    <legend><strong>Personal Details</strong></legend>
+                    <p>
+                        <label for="fullname">Full Name (Required):</label><br>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    </p>
+                    <p>
+                        <label for="email">Email Address (Required):</label><br>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    </p>
+                    <p>
+                        <label for="phone">Phone Number (Optional):</label><br>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
+                    </p>
+                </fieldset>
+
+                <br>
+
+                <!-- Fieldset 2: Inquiry Information -->
+                <fieldset>
+                    <legend><strong>Inquiry Details</strong></legend>
+                    <p>
+                        <label for="topic">Reason for Contact:</label><br>
+                        <select id="topic" name="topic" required>
+                            <option value="">-- Please select an option --</option>
+                            <option value="collaboration">Project Collaboration</option>
+                            <option value="mentorship">Mentorship / Advice</option>
+                            <option value="feedback">Website Feedback</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <strong>Preferred Contact Method:</strong><br>
+                        <input type="radio" id="pref-email" name="contact-pref" value="email" checked>
+                        <label for="pref-email">Email</label> &nbsp;
+                        <input type="radio" id="pref-phone" name="contact-pref" value="phone">
+                        <label for="pref-phone">Phone</label> &nbsp;
+                        <input type="radio" id="pref-whatsapp" name="contact-pref" value="whatsapp">
+                        <label for="pref-whatsapp">WhatsApp</label>
+                    </p>
+
+                    <p>
+                        <label for="message">Your Message:</label><br>
+                        <textarea id="message" name="message" rows="5" cols="45" placeholder="Write your message or inquiry here..." required></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="subscribe" name="subscribe" value="yes" checked>
+                        <label for="subscribe">Keep me updated on future frontend project milestones.</label>
+                    </p>
+                </fieldset>
+
+                <br>
+
+                <!-- Form Action Buttons -->
+                <p>
+                    <input type="submit" value="Submit Message">
+                    <input type="reset" value="Reset Form">
+                </p>
+            </form>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2026 Day 9 of Frontend Development &bull; HTML Lists</p>
+        <p>
+            <strong>&copy; 2026 Harish.</strong> All rights reserved. &bull; 
+            <em>Day 10 Frontend Development Mini Project</em>
+        </p>
+        <p>
+            <a href="#top">⬆ Return to Top</a> | 
+            <a href="mailto:peddapellyharish@gmail.com">peddapellyharish@gmail.com</a> | 
+            <a href="https://github.com/harish-0987/DAY-10-OF-FRONTEND" target="_blank">GitHub Repository</a>
+        </p>
     </footer>
 
 </body>

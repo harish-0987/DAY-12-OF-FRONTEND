@@ -1,103 +1,116 @@
-# 📋 Day 9 of Frontend: HTML Lists
+# 🚀 Day 10 of Frontend: HTML-Only Mini Project
 
-Welcome to **Day 9 of Frontend Development**! Today's lesson focuses on **HTML Lists** — learning how to structure items, numbered sequences, terminology dictionaries, and nested navigation structures.
+Welcome to **Day 10 of Frontend Development**! Today's milestone is building a complete, basic-level **Personal Portfolio & Resume Web Page** using **ONLY HTML** without any CSS.
 
-Repository: [harish-0987/DAY-9-OF-FRONTEND](https://github.com/harish-0987/DAY-9-OF-FRONTEND)
-
----
-
-## 📌 Types of HTML Lists
-
-HTML provides three primary list types to organize content:
-
-| List Type | HTML Tag | Description | Typical Use Case |
-|---|---|---|---|
-| **Unordered List** | `<ul>` | Bulleted list where order does not matter | Features list, shopping list, navigation bar |
-| **Ordered List** | `<ol>` | Sequenced list with numbers or letters | Step-by-step instructions, rankings, recipes |
-| **Description List** | `<dl>` | Pairs of terms (`<dt>`) and descriptions (`<dd>`) | Glossaries, FAQs, key-value metadata |
+Repository: [harish-0987/DAY-10-OF-FRONTEND](https://github.com/harish-0987/DAY-10-OF-FRONTEND)
 
 ---
 
-## 🏷️ Key Elements & Attributes
+## 🎯 Project Overview
 
-### 1. Common List Tags
-- `<ul>`: Defines an unordered list.
-- `<ol>`: Defines an ordered list.
-- `<li>`: Defines a list item (used inside `<ul>` and `<ol>`).
-- `<dl>`: Defines a description list.
-- `<dt>`: Defines a term/name in a description list.
-- `<dd>`: Describes each term in a description list.
+This project synthesizes all foundational HTML concepts learned across **Days 1 to 9** into a functional, multi-section web page:
+- **Zero CSS**: No external stylesheets, `<style>` tags, or inline `style` attributes. Pure HTML tags and native attributes only.
+- **Semantic Structure**: Utilizing modern HTML5 semantic layout tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<footer>`).
+- **Rich Content Variety**: Headings, paragraphs, text formatting, images, tables, lists, accordions, and interactive forms.
 
-### 2. Ordered List Attributes
+---
 
-| Attribute | Values | Description |
+## 📑 Page Sections & Features
+
+| Section | HTML Elements Used | Description |
 |---|---|---|
-| `type="1"` | `1` (default) | Numbers (1, 2, 3...) |
-| `type="a"` / `type="A"` | `a` or `A` | Lowercase or Uppercase letters (a, b, c... / A, B, C...) |
-| `type="i"` / `type="I"` | `i` or `I` | Lowercase or Uppercase Roman numerals (i, ii, iii... / I, II, III...) |
-| `start="number"` | Any integer (e.g., `start="5"`) | Specifies the starting number for the list |
-| `reversed` | Boolean attribute | Reverses the list numbering (e.g., 3, 2, 1) |
+| **Header & Nav** | `<header>`, `<h1>`, `<nav>`, `<a>`, `<hr>` | Page title, introduction, and in-page anchor jump links. |
+| **About Me** | `<figure>`, `<img>`, `<figcaption>`, `<p>`, `<mark>`, `<dl>` | Profile image, bio with text formatting, and quick facts description list. |
+| **Skills** | `<ul>`, `<ol>`, `<li>`, `<dl>`, `<code>` | Nested unordered lists for tech skills, and description list for HTML definitions. |
+| **Projects** | `<article>`, `<h3>`, `<img>`, `<ul>`, `<a>` | Featured mini-projects with preview images, bullet points, and repository links. |
+| **Education** | `<table>`, `<caption>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` | Tabular academic history with borders and cell padding. |
+| **Process** | `<ol type="1">`, `<li>` | Step-by-step numbered development workflow. |
+| **Interactive FAQ** | `<details>`, `<summary>` | Native pure-HTML collapsible disclosure accordions without JavaScript or CSS. |
+| **Contact Form** | `<form>`, `<fieldset>`, `<legend>`, `<input>`, `<select>`, `<textarea>`, `<button>` | Complete form with text, email, tel, dropdown, radio buttons, checkboxes, and buttons. |
+| **Footer** | `<footer>`, `<p>`, `<a>` | Copyright details, back-to-top anchor link, and email mailto link. |
 
 ---
 
-## 💻 Basic Code Examples
+## 💻 Key HTML Concepts Implemented
 
-### 1. Unordered List (`<ul>`)
+### 1. In-Page Navigation (Smooth Bookmark Links)
 ```html
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ul>
+<nav>
+    <a href="#about">About Me</a> | 
+    <a href="#skills">Skills</a> | 
+    <a href="#contact">Contact Me</a>
+</nav>
+
+<!-- Target Section -->
+<section id="about">
+    <h2>1. About Me</h2>
+</section>
 ```
 
-### 2. Ordered List (`<ol>`)
+### 2. Pure HTML Tables
 ```html
-<ol type="1" start="1">
-    <li>Learn HTML structure</li>
-    <li>Style with CSS</li>
-    <li>Add interactivity with JavaScript</li>
-</ol>
+<table border="1" cellpadding="8" cellspacing="0">
+    <caption><strong>Academic History</strong></caption>
+    <thead>
+        <tr>
+            <th>Level / Course</th>
+            <th>Institution</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>B.Tech</td>
+            <td>Engineering College</td>
+            <td>2022 - 2026</td>
+        </tr>
+    </tbody>
+</table>
 ```
 
-### 3. Description List (`<dl>`)
+### 3. Pure HTML Collapsible Accordions (`<details>` & `<summary>`)
 ```html
-<dl>
-    <dt>HTML</dt>
-    <dd>HyperText Markup Language - defines the structure of web pages.</dd>
-
-    <dt>CSS</dt>
-    <dd>Cascading Style Sheets - styles the appearance of web pages.</dd>
-</dl>
+<details>
+    <summary><strong>Why use only HTML?</strong></summary>
+    <p>It strengthens understanding of HTML semantics and structure before adding CSS styling.</p>
+</details>
 ```
 
-### 4. Nested List Example
+### 4. Comprehensive HTML Forms
 ```html
-<ol>
-    <li>Frontend
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
-    </li>
-    <li>Backend
-        <ul>
-            <li>Node.js</li>
-            <li>Python</li>
-        </ul>
-    </li>
-</ol>
+<form action="#" method="post">
+    <fieldset>
+        <legend>Personal Details</legend>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+    </fieldset>
+</form>
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+DAY-10-OF-FRONTEND/
+├── index.html            # Main HTML-only portfolio project (No CSS)
+├── README.md             # Documentation and concepts guide
+├── avatar.jpg            # Profile avatar image
+└── project-preview.jpg   # Project preview screenshot
 ```
 
 ---
 
 ## 🚀 How to Run & Push to GitHub
 
-1. Open [index.html](file:///c:/Users/pedda/OneDrive/Desktop/HTML/index.html) in your browser.
-2. Push your changes to Day 9:
-   ```bash
-   git add .
-   git commit -m "Day 9: HTML Lists basic implementation"
-   git push -u day9 main
-   ```
+### 1. View Locally
+Open [index.html](file:///c:/Users/pedda/OneDrive/Desktop/HTML/index.html) directly in any web browser (Google Chrome, Microsoft Edge, Firefox, etc.).
+
+### 2. Push to Day 10 GitHub Repository
+Run the following commands in your terminal:
+
+```bash
+git add .
+git commit -m "Day 10: Pure HTML mini project (Personal Portfolio & Resume) without CSS"
+git push -u day10 main
+```
