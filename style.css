@@ -1,0 +1,94 @@
+/* Day 11 Frontend: Basic Level CSS */
+
+/* 1. Global Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f9fa;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* 2. Header & Headings */
+header, footer {
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1, h2, h3 {
+    color: #1a365d;
+}
+
+/* 3. Navigation & Links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 4. Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 5. Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin: 15px 0;
+}
+
+th, td {
+    border: 1px solid #d2d6dc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #edf2f7;
+}
+
+/* 6. Form Elements */
+fieldset {
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    padding: 16px;
+    background-color: #ffffff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 8px 18px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1a365d;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    background-color: #718096;
+}
